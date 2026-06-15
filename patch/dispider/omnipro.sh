@@ -12,6 +12,9 @@ mkdir -vp ${output_dir}/eval
 # --------------------
 # apply patches
 # --------------------
+export CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-0}
+echo "[gpu] Using CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES}"
+
 echo "[patch] Copying patched files into ${dispider_root} ..."
 cp -v patch/dispider/builder.py       ${dispider_root}/dispider/model/builder.py
 cp -v patch/dispider/clip_encoder.py  ${dispider_root}/dispider/model/multimodal_encoder/clip_encoder.py
