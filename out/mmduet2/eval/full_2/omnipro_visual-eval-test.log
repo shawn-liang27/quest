@@ -1,0 +1,41 @@
+
+============================================================
+OmniPro Evaluation  (tol=3.0s, visual_only=True)
+============================================================
+Samples:          432
+Trigger Recall:   0.665  (1145/1723)
+Precision:        0.261
+F1:               0.375
+False alarms:     5141
+
+Language quality (matched triggers only):
+  ROUGE-L:        0.168  (n=1145)
+
+By task:
+  instant_event_alert                  n= 17  recall=0.550  rouge_l=0.085
+  static_object_counting               n= 35  recall=0.800  rouge_l=0.150
+  realtime_state_monitor               n= 98  recall=0.514  rouge_l=0.105
+  semantic_condition_alert             n= 11  recall=0.719  rouge_l=0.148
+  dedup_counting                       n=121  recall=0.734  rouge_l=0.199
+  explicit_target_grounding            n=  6  recall=0.857  rouge_l=0.325
+  event_narration                      n=  5  recall=0.783  rouge_l=0.135
+  sequential_step_instruction          n= 66  recall=0.765  rouge_l=0.169
+  cumulative_counting                  n= 73  recall=0.624  rouge_l=0.193
+
+Firing accuracy by video duration (decay curve):
+  0-60s       n= 39  recall=0.705  rouge_l=0.180
+  60-120s     n=123  recall=0.683  rouge_l=0.175
+  120-180s    n=108  recall=0.706  rouge_l=0.169
+  180-300s    n=114  recall=0.633  rouge_l=0.162
+  300-600s    n= 48  recall=0.553  rouge_l=0.149
+
+Firing accuracy by trigger timestamp (temporal decay):
+  0-30s       n_triggers=485  detected=344  recall=0.709  rouge_l=0.202
+  30-60s      n_triggers=445  detected=303  recall=0.681  rouge_l=0.166
+  60-120s     n_triggers=479  detected=326  recall=0.681  rouge_l=0.158
+  120-180s    n_triggers=173  detected= 96  recall=0.555  rouge_l=0.127
+  180-300s    n_triggers=107  detected= 64  recall=0.598  rouge_l=0.128
+  300-600s    n_triggers= 34  detected= 12  recall=0.353  rouge_l=0.098
+============================================================
+
+Per-sample results written to /usr/homes/sgl57/quest/baseline/MMDuet2/proactive_eval/outputs/full_2/omnipro_visual-eval_test.jsonl

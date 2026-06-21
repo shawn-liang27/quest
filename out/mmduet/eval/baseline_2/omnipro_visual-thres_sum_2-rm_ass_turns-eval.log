@@ -1,0 +1,38 @@
+
+============================================================
+OmniPro Evaluation  (tol=3.0s, visual_only=True)
+============================================================
+Samples:          432
+Trigger Recall:   0.875  (1507/1723)
+Precision:        0.142
+F1:               0.245
+False alarms:     13729
+
+By task:
+  instant_event_alert                  n= 17  recall=0.950
+  static_object_counting               n= 35  recall=0.943
+  realtime_state_monitor               n= 98  recall=0.949
+  semantic_condition_alert             n= 11  recall=1.000
+  dedup_counting                       n=121  recall=0.849
+  explicit_target_grounding            n=  6  recall=1.000
+  event_narration                      n=  5  recall=0.913
+  sequential_step_instruction          n= 66  recall=0.749
+  cumulative_counting                  n= 73  recall=0.928
+
+Firing accuracy by video duration (decay curve):
+  0-60s       n= 39  recall=0.801
+  60-120s     n=123  recall=0.812
+  120-180s    n=108  recall=0.915
+  180-300s    n=114  recall=0.908
+  300-600s    n= 48  recall=0.927
+
+Firing accuracy by trigger timestamp (temporal decay):
+  0-30s       n_triggers=485  detected=324  recall=0.668
+  30-60s      n_triggers=445  detected=436  recall=0.980
+  60-120s     n_triggers=479  detected=446  recall=0.931
+  120-180s    n_triggers=173  detected=163  recall=0.942
+  180-300s    n_triggers=107  detected=104  recall=0.972
+  300-600s    n_triggers= 34  detected= 34  recall=1.000
+============================================================
+
+Per-sample results written to outputs/mmduet/eval/baseline_2/omnipro_visual-thres_sum_2-rm_ass_turns-eval.jsonl

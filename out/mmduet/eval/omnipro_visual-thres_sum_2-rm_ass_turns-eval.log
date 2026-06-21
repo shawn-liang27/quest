@@ -1,0 +1,41 @@
+Generating test split: 0 examples [00:00, ? examples/s]Generating test split: 2700 examples [00:00, 136013.51 examples/s]
+Generating claim_a split: 0 examples [00:00, ? examples/s]Generating claim_a split: 10 examples [00:00, 8736.31 examples/s]
+Generating claim_a_scaled split: 0 examples [00:00, ? examples/s]Generating claim_a_scaled split: 48 examples [00:00, 44511.74 examples/s]
+
+============================================================
+OmniPro Evaluation  (tol=5.0s, visual_only=True)
+============================================================
+Samples:          432
+Trigger Recall:   0.748  (1288/1723)
+Precision:        0.311
+F1:               0.439
+False alarms:     11225
+
+By task:
+  instant_event_alert                  n= 17  recall=0.400
+  static_object_counting               n= 35  recall=0.714
+  realtime_state_monitor               n= 98  recall=0.747
+  semantic_condition_alert             n= 11  recall=0.719
+  dedup_counting                       n=121  recall=0.786
+  explicit_target_grounding            n=  6  recall=0.714
+  event_narration                      n=  5  recall=0.696
+  sequential_step_instruction          n= 66  recall=0.822
+  cumulative_counting                  n= 73  recall=0.642
+
+Firing accuracy by video duration (decay curve):
+  0-60s       n= 39  recall=1.000
+  60-120s     n=123  recall=0.956
+  120-180s    n=108  recall=0.765
+  180-300s    n=114  recall=0.546
+  300-600s    n= 48  recall=0.413
+
+Firing accuracy by trigger timestamp (temporal decay):
+  0-30s       n_triggers=485  detected=473  recall=0.975
+  30-60s      n_triggers=445  detected=443  recall=0.996
+  60-120s     n_triggers=479  detected=372  recall=0.777
+  120-180s    n_triggers=173  detected=  0  recall=0.000
+  180-300s    n_triggers=107  detected=  0  recall=0.000
+  300-600s    n_triggers= 34  detected=  0  recall=0.000
+============================================================
+
+Per-sample results written to outputs/mmduet/eval/omnipro_visual-thres_sum_2-rm_ass_turns-eval.jsonl

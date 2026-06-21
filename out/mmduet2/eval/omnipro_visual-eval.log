@@ -1,0 +1,31 @@
+
+============================================================
+OmniPro Evaluation  (tol=5.0s, visual_only=True)
+============================================================
+Samples:          16
+Trigger Recall:   0.778  (14/18)
+Precision:        0.095
+F1:               0.169
+False alarms:     248
+
+Language quality (matched triggers only):
+  ROUGE-L:        0.102  (n=14)
+
+By task:
+  instant_event_alert                  n= 16  recall=0.778  rouge_l=0.102
+
+Firing accuracy by video duration (decay curve):
+  60-120s     n=  4  recall=0.750  rouge_l=0.080
+  120-180s    n=  2  recall=1.000  rouge_l=0.150
+  180-300s    n=  7  recall=0.714  rouge_l=0.103
+  300-600s    n=  3  recall=0.800  rouge_l=0.096
+
+Firing accuracy by trigger timestamp (temporal decay):
+  30-60s      n_triggers=  2  detected=  2  recall=1.000  rouge_l=0.067
+  60-120s     n_triggers=  6  detected=  5  recall=0.833  rouge_l=0.112
+  120-180s    n_triggers=  6  detected=  4  recall=0.667  rouge_l=0.075
+  180-300s    n_triggers=  2  detected=  2  recall=1.000  rouge_l=0.170
+  300-600s    n_triggers=  2  detected=  1  recall=0.500  rouge_l=0.103
+============================================================
+
+Per-sample results written to outputs/omnipro_visual-eval.jsonl

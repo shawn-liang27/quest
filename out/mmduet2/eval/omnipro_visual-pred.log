@@ -1,0 +1,188 @@
+set MAX_PIXELS: 12845056
+set VIDEO_MAX_PIXELS: 602112
+set FPS: 2.0
+set FPS_MAX_FRAMES: 768
+set VIDEO_TOTAL_PIXELS: 90316800
+Hello! You are loading qwen_vl_utils from: /home/sgl57/quest/baseline/MMDuet2/proactive_eval/qwen_vl_utils/__init__.py
+Hello! You are loading Qwen2.5-VL model from: /home/sgl57/quest/baseline/MMDuet2/proactive_eval/qwen2_5_vl/__init__.py
+OmniProTestArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+attn_implementation=flash_attention_2,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+device_map=None,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_sample=False,
+do_train=False,
+duration_buckets=None,
+end_idx=None,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=None,
+eval_strategy=no,
+eval_use_gather_object=False,
+evaluation_strategy=None,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+frame_interval=1.0,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_v2': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=None,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=[],
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+input_assistant_turns=False,
+is_online_model=True,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+llm_pretrained=wangyueqian/MMDuet2,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=trainer_output/runs/Jun16_11-05-29_lambda-hyperplane,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_num_frames=600,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=3.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=trainer_output,
+output_fname=outputs/omnipro_visual-pred.jsonl,
+output_resolution=384,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=8,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=trainer_output,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=None,
+seed=42,
+single_trigger=True,
+skip_memory_metrics=True,
+split_batches=None,
+start_idx=0,
+system_prompt=You are a helpful assistant. Your task is to answer questions based on continuously incoming video frames. Your responses should include information from the video since your last reply (if any). If the information in this segment of the video cannot answer the question, output "NO REPLY".,
+temperature=1.0,
+test_fname=,
+tf32=None,
+top_k=40,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+video_base=/mnt/data0/sgl57/data/omnipro,
+visual_only=True,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+Sample ID filter: 15/15 found
+Loaded 15 OmniPro samples (visual_only=True)
+Found 7 existing predictions, will skip those
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+model load debug: loaded all keep masks for Qwen2_5_VLModel
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  4.29it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  5.27it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  5.10it/s]
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.48, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+MMDuet2 OmniPro:   0%|          | 0/15 [00:00<?, ?it/s][instant_event_alert::4JwMlFMzh5Y::142] 201 frames, 200.6s video
+/usr/homes/sgl57/miniconda3/envs/mmduet2-infer/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:651: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `40` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[instant_event_alert::4JwMlFMzh5Y::142] done — 30 replies
+MMDuet2 OmniPro:  47%|████▋     | 7/15 [04:54<05:36, 42.05s/it][instant_event_alert::26BT7YzpzQs::145] 528 frames, 527.7s video
+[instant_event_alert::26BT7YzpzQs::145] done — 0 replies
+MMDuet2 OmniPro:  53%|█████▎    | 8/15 [27:35<30:59, 265.65s/it][instant_event_alert::Lno78zPUEXs::183] 61 frames, 61.0s video
+[instant_event_alert::Lno78zPUEXs::183] done — 4 replies
+MMDuet2 OmniPro:  60%|██████    | 9/15 [28:11<22:05, 220.84s/it][instant_event_alert::25A6GhbcnKs::193] 228 frames, 227.4s video
+[instant_event_alert::25A6GhbcnKs::193] done — 57 replies
+MMDuet2 OmniPro:  67%|██████▋   | 10/15 [34:51<21:39, 259.84s/it][instant_event_alert::KFpK0Z8FVyI::213] 281 frames, 280.8s video
+[instant_event_alert::KFpK0Z8FVyI::213] done — 5 replies
+MMDuet2 OmniPro:  73%|███████▎  | 11/15 [40:58<19:01, 285.38s/it][instant_event_alert::V9Kl1FK8fUU::223] 183 frames, 182.1s video
+[instant_event_alert::V9Kl1FK8fUU::223] done — 3 replies
+MMDuet2 OmniPro:  80%|████████  | 12/15 [43:34<12:37, 252.65s/it][instant_event_alert::DLBbSgu_JdM::256] 185 frames, 184.8s video
+[instant_event_alert::DLBbSgu_JdM::256] done — 27 replies
+MMDuet2 OmniPro:  87%|████████▋ | 13/15 [47:24<08:13, 246.59s/it][instant_event_alert::1dikAGqQ3hs::267] 187 frames, 186.7s video
+[instant_event_alert::1dikAGqQ3hs::267] done — 23 replies
+MMDuet2 OmniPro:  93%|█████████▎| 14/15 [53:58<04:46, 286.98s/it][instant_event_alert::2Vh-xCGMLzg::295] 84 frames, 83.8s video
+[instant_event_alert::2Vh-xCGMLzg::295] done — 4 replies
+MMDuet2 OmniPro: 100%|██████████| 15/15 [54:46<00:00, 219.56s/it]MMDuet2 OmniPro: 100%|██████████| 15/15 [54:46<00:00, 219.07s/it]
+Results saved to outputs/omnipro_visual-pred.jsonl

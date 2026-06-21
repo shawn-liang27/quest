@@ -1,0 +1,32 @@
+======================================================================
+VISUAL-ONLY SUBSET — duration distribution
+======================================================================
+  videos: 432
+  min/median/max duration: 24s / 153s / 595s
+  videos longer than cap (400s): 25
+  videos > 180s: 162
+  videos > 300s: 48
+  videos > 400s: 25
+  videos > 600s: 0
+
+======================================================================
+COVERAGE CAP = 400s  (fps=1.0, max_frames=400)
+======================================================================
+  scored samples (in pred file): 432
+
+  bucket        trigs  beyond_cap  recall  miss>cap  miss<=cap  recall_within
+  0-30s           485           0   0.709         0        141          0.709
+  30-60s          445           0   0.681         0        142          0.681
+  60-120s         479           0   0.681         0        153          0.681
+  120-180s        173           0   0.555         0         77          0.555
+  180-300s        107           0   0.598         0         43          0.598
+  300-600s         34          14   0.353        10         12          0.600
+
+Interpretation:
+  - 'beyond_cap' = triggers the model NEVER ingested (truncation).
+  - 'miss>cap'   = misses explained by truncation (not decay).
+  - 'miss<=cap'  = genuine misses: model saw the frames, didn't fire.
+  - 'recall_within' = recall over only the triggers the model could see.
+  If the 300-600s recall drop disappears in recall_within, the decay
+  was the coverage cap, NOT attention dilution.
+======================================================================

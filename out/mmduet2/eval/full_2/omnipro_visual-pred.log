@@ -1,0 +1,1032 @@
+set MAX_PIXELS: 12845056
+set VIDEO_MAX_PIXELS: 602112
+set FPS: 2.0
+set FPS_MAX_FRAMES: 768
+set VIDEO_TOTAL_PIXELS: 90316800
+Hello! You are loading qwen_vl_utils from: /home/sgl57/quest/baseline/MMDuet2/proactive_eval/qwen_vl_utils/__init__.py
+Hello! You are loading Qwen2.5-VL model from: /home/sgl57/quest/baseline/MMDuet2/proactive_eval/qwen2_5_vl/__init__.py
+OmniProTestArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+attn_implementation=flash_attention_2,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+device_map=None,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_sample=False,
+do_train=False,
+duration_buckets=None,
+end_idx=None,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=None,
+eval_strategy=no,
+eval_use_gather_object=False,
+evaluation_strategy=None,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+frame_interval=1.0,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_v2': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=None,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=[],
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+input_assistant_turns=False,
+is_online_model=True,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+llm_pretrained=wangyueqian/MMDuet2,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=trainer_output/runs/Jun16_15-11-26_lambda-hyperplane,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_num_frames=600,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=3.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=trainer_output,
+output_fname=outputs/full_2/omnipro_visual-pred.jsonl,
+output_resolution=384,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=8,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=trainer_output,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=None,
+seed=42,
+single_trigger=False,
+skip_memory_metrics=True,
+split_batches=None,
+start_idx=0,
+system_prompt=You are a helpful assistant. Your task is to answer questions based on continuously incoming video frames. Your responses should include information from the video since your last reply (if any). If the information in this segment of the video cannot answer the question, output "NO REPLY".,
+temperature=1.0,
+test_fname=,
+tf32=None,
+top_k=40,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+video_base=/mnt/data0/sgl57/data/omnipro,
+visual_only=True,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+Loaded 432 OmniPro samples (visual_only=True)
+Found 0 existing predictions, will skip those
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+model load debug: loaded all keep masks for Qwen2_5_VLModel
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  5.59it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  6.86it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  6.63it/s]
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.48, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+MMDuet2 OmniPro:   0%|          | 0/432 [00:00<?, ?it/s][instant_event_alert::NOqb0dFIxds::15] 343 frames, 342.8s video
+/usr/homes/sgl57/miniconda3/envs/mmduet2-infer/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:651: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `40` -- this flag is only used in sample-based generation modes. You should set `do_sa[instant_event_alert::NOqb0dFIxds::15] done — 98 replies
+MMDuet2 OmniPro:   0%|          | 1/432 [17:13<123:44:39, 1033.60s/it][instant_event_alert::7shRl0Lxycc::26] 101 frames, 100.1s video
+[instant_event_alert::7shRl0Lxycc::26] done — 6 replies
+MMDuet2 OmniPro:   0%|          | 2/432 [18:23<55:43:27, 466.53s/it]  [instant_event_alert::BBcu4EclgOs::35] 164 frames, 163.6s video
+[instant_event_alert::BBcu4EclgOs::35] done — 1 replies
+MMDuet2 OmniPro:   1%|          | 3/432 [20:42<37:46:53, 317.05s/it][instant_event_alert::2llGbAybvB0::81] 145 frames, 144.3s video
+[instant_event_alert::2llGbAybvB0::81] done — 1 replies
+MMDuet2 OmniPro:   1%|          | 4/432 [22:35<28:06:42, 236.45s/it][instant_event_alert::IWquNO7pJ_Q::84] 268 frames, 267.5s video
+[instant_event_alert::IWquNO7pJ_Q::84] done — 0 replies
+MMDuet2 OmniPro:   1%|          | 5/432 [28:38<33:27:19, 282.06s/it][instant_event_alert::-__OUrHGeuU::105] 354 frames, 353.4s video
+[instant_event_alert::-__OUrHGeuU::105] done — 15 replies
+MMDuet2 OmniPro:   1%|▏         | 6/432 [39:26<48:05:53, 406.46s/it][instant_event_alert::TXeVf42sQdM::122] 120 frames, 119.9s video
+[instant_event_alert::TXeVf42sQdM::122] done — 0 replies
+MMDuet2 OmniPro:   2%|▏         | 7/432 [40:43<35:17:29, 298.94s/it][instant_event_alert::HdbBkWjBQWw::137] 281 frames, 280.4s video
+[instant_event_alert::HdbBkWjBQWw::137] done — 12 replies
+MMDuet2 OmniPro:   2%|▏         | 8/432 [48:01<40:24:43, 343.12s/it][instant_event_alert::4JwMlFMzh5Y::142] 201 frames, 200.6s video
+[instant_event_alert::4JwMlFMzh5Y::142] done — 30 replies
+MMDuet2 OmniPro:   2%|▏         | 9/432 [52:21<37:16:04, 317.17s/it][instant_event_alert::26BT7YzpzQs::145] 528 frames, 527.7s video
+[instant_event_alert::26BT7YzpzQs::145] done — 0 replies
+MMDuet2 OmniPro:   2%|▏         | 10/432 [1:13:10<70:53:38, 604.78s/it][instant_event_alert::Lno78zPUEXs::183] 61 frames, 61.0s video
+[instant_event_alert::Lno78zPUEXs::183] done — 4 replies
+MMDuet2 OmniPro:   3%|▎         | 11/432 [1:13:32<49:52:41, 426.51s/it][instant_event_alert::25A6GhbcnKs::193] 228 frames, 227.4s video
+[instant_event_alert::25A6GhbcnKs::193] done — 57 replies
+MMDuet2 OmniPro:   3%|▎         | 12/432 [1:17:35<43:14:44, 370.68s/it][instant_event_alert::KFpK0Z8FVyI::213] 281 frames, 280.8s video
+[instant_event_alert::KFpK0Z8FVyI::213] done — 5 replies
+MMDuet2 OmniPro:   3%|▎         | 13/432 [1:22:08<39:41:16, 340.99s/it][instant_event_alert::V9Kl1FK8fUU::223] 183 frames, 182.1s video
+[instant_event_alert::V9Kl1FK8fUU::223] done — 3 replies
+MMDuet2 OmniPro:   3%|▎         | 14/432 [1:24:04<31:42:48, 273.13s/it][instant_event_alert::DLBbSgu_JdM::256] 185 frames, 184.8s video
+[instant_event_alert::DLBbSgu_JdM::256] done — 27 replies
+MMDuet2 OmniPro:   3%|▎         | 15/432 [1:26:33<27:18:24, 235.74s/it][instant_event_alert::1dikAGqQ3hs::267] 187 frames, 186.7s video
+[instant_event_alert::1dikAGqQ3hs::267] done — 23 replies
+MMDuet2 OmniPro:   4%|▎         | 16/432 [1:30:28<27:11:38, 235.33s/it][instant_event_alert::2Vh-xCGMLzg::295] 84 frames, 83.8s video
+[instant_event_alert::2Vh-xCGMLzg::295] done — 4 replies
+MMDuet2 OmniPro:   4%|▍         | 17/432 [1:31:00<20:05:01, 174.22s/it][static_object_counting::TmqbLiW4cl8::11] 63 frames, 62.6s video
+[static_object_counting::TmqbLiW4cl8::11] done — 3 replies
+MMDuet2 OmniPro:   4%|▍         | 18/432 [1:31:20<14:42:17, 127.87s/it][static_object_counting::RmjSfjgqgF8::20] 112 frames, 112.0s video
+[static_object_counting::RmjSfjgqgF8::20] done — 1 replies
+MMDuet2 OmniPro:   4%|▍         | 19/432 [1:32:07<11:54:38, 103.82s/it][static_object_counting::ZbBxg8YUG1g::27] 164 frames, 163.8s video
+[static_object_counting::ZbBxg8YUG1g::27] done — 3 replies
+MMDuet2 OmniPro:   5%|▍         | 20/432 [1:33:43<11:36:19, 101.41s/it][static_object_counting::N56253QAq_o::30] 132 frames, 131.8s video
+[static_object_counting::N56253QAq_o::30] done — 1 replies
+MMDuet2 OmniPro:   5%|▍         | 21/432 [1:34:47<10:17:12, 90.10s/it] [static_object_counting::PHZXpINfz2o::71] 180 frames, 179.5s video
+[static_object_counting::PHZXpINfz2o::71] done — 4 replies
+MMDuet2 OmniPro:   5%|▌         | 22/432 [1:36:41<11:04:45, 97.28s/it][static_object_counting::900pWYk1nLE::73] 65 frames, 64.2s video
+[static_object_counting::900pWYk1nLE::73] done — 8 replies
+MMDuet2 OmniPro:   5%|▌         | 23/432 [1:37:11<8:45:17, 77.06s/it] [static_object_counting::W0-a_BbCo9I::82] 127 frames, 126.8s video
+[static_object_counting::W0-a_BbCo9I::82] done — 5 replies
+MMDuet2 OmniPro:   6%|▌         | 24/432 [1:38:14<8:15:20, 72.84s/it][static_object_counting::ErNL6TY1GfI::85] 154 frames, 153.4s video
+[static_object_counting::ErNL6TY1GfI::85] done — 17 replies
+MMDuet2 OmniPro:   6%|▌         | 25/432 [1:40:20<10:02:34, 88.83s/it][static_object_counting::Uy4viSMpQBA::111] 308 frames, 308.0s video
+[static_object_counting::Uy4viSMpQBA::111] done — 26 replies
+MMDuet2 OmniPro:   6%|▌         | 26/432 [1:46:37<19:46:49, 175.39s/it][static_object_counting::YJV5yWfrB98::119] 153 frames, 152.9s video
+[static_object_counting::YJV5yWfrB98::119] done — 1 replies
+MMDuet2 OmniPro:   6%|▋         | 27/432 [1:47:59<16:35:01, 147.41s/it][static_object_counting::KknUO0Elk0I::122] 213 frames, 212.6s video
+[static_object_counting::KknUO0Elk0I::122] done — 0 replies
+MMDuet2 OmniPro:   6%|▋         | 28/432 [1:50:30<16:38:34, 148.30s/it][static_object_counting::25A6GhbcnKs::146] 228 frames, 227.4s video
+[static_object_counting::25A6GhbcnKs::146] done — 1 replies
+MMDuet2 OmniPro:   7%|▋         | 29/432 [1:53:23<17:26:25, 155.79s/it][static_object_counting::MARVjDLPDYY::150] 70 frames, 69.2s video
+[static_object_counting::MARVjDLPDYY::150] done — 0 replies
+MMDuet2 OmniPro:   7%|▋         | 30/432 [1:53:45<12:54:07, 115.54s/it][static_object_counting::HF8nrtwFVA8::151] 144 frames, 143.9s video
+[static_object_counting::HF8nrtwFVA8::151] done — 2 replies
+MMDuet2 OmniPro:   7%|▋         | 31/432 [1:55:00<11:31:15, 103.43s/it][static_object_counting::HAFLLtAcRKY::153] 53 frames, 53.0s video
+[static_object_counting::HAFLLtAcRKY::153] done — 2 replies
+MMDuet2 OmniPro:   7%|▋         | 32/432 [1:55:16<8:34:08, 77.12s/it]  [static_object_counting::4JwMlFMzh5Y::154] 201 frames, 200.6s video
+[static_object_counting::4JwMlFMzh5Y::154] done — 5 replies
+MMDuet2 OmniPro:   8%|▊         | 33/432 [1:57:31<10:28:50, 94.56s/it][static_object_counting::RE8ikWl_Hp8::162] 241 frames, 240.6s video
+[static_object_counting::RE8ikWl_Hp8::162] done — 4 replies
+MMDuet2 OmniPro:   8%|▊         | 34/432 [2:00:45<13:44:46, 124.34s/it][static_object_counting::82U_y1WJ13A::164] 486 frames, 485.3s video
+[static_object_counting::82U_y1WJ13A::164] done — 0 replies
+MMDuet2 OmniPro:   8%|▊         | 35/432 [2:15:37<39:07:22, 354.77s/it][static_object_counting::0dJSPsXCujc::173] 421 frames, 420.6s video
+[static_object_counting::0dJSPsXCujc::173] done — 4 replies
+MMDuet2 OmniPro:   8%|▊         | 36/432 [2:27:45<51:19:32, 466.60s/it][static_object_counting::JQFsBnNMa3s::178] 281 frames, 280.1s video
+[static_object_counting::JQFsBnNMa3s::178] done — 1 replies
+MMDuet2 OmniPro:   9%|▊         | 37/432 [2:32:13<44:40:56, 407.23s/it][static_object_counting::HgVegvv1HPE::186] 212 frames, 211.3s video
+[static_object_counting::HgVegvv1HPE::186] done — 4 replies
+MMDuet2 OmniPro:   9%|▉         | 38/432 [2:34:46<36:13:11, 330.94s/it][static_object_counting::MrRcGmdL_4U::195] 67 frames, 67.0s video
+[static_object_counting::MrRcGmdL_4U::195] done — 1 replies
+MMDuet2 OmniPro:   9%|▉         | 39/432 [2:35:07<25:58:23, 237.92s/it][static_object_counting::XbpxMJ_Mz8M::197] 68 frames, 67.2s video
+[static_object_counting::XbpxMJ_Mz8M::197] done — 1 replies
+MMDuet2 OmniPro:   9%|▉         | 40/432 [2:35:29<18:50:03, 172.97s/it][static_object_counting::Yl0auMMHAh8::204] 191 frames, 190.2s video
+[static_object_counting::Yl0auMMHAh8::204] done — 3 replies
+MMDuet2 OmniPro:   9%|▉         | 41/432 [2:37:31<17:07:52, 157.73s/it][static_object_counting::RyZMWPrw8Dg::213] 154 frames, 153.5s video
+[static_object_counting::RyZMWPrw8Dg::213] done — 3 replies
+MMDuet2 OmniPro:  10%|▉         | 42/432 [2:38:58<14:47:39, 136.56s/it][static_object_counting::FbDpZtgONPg::215] 178 frames, 177.4s video
+[static_object_counting::FbDpZtgONPg::215] done — 6 replies
+MMDuet2 OmniPro:  10%|▉         | 43/432 [2:40:48<13:54:02, 128.64s/it][static_object_counting::UZQZ2fAoTn4::221] 585 frames, 584.3s video
+This is a friendly reminder - the currentThis is a friendly reminder - the current text generation call will exceed the model's predefined maximum length (128000). Depending on the model, you may observe exceptions, performance degradation, or nothing at all.
+Token indices sequence length is longer than the specified maximum sequence length for this model (131136 > 131072). Running this sequence through the model will result in indexing errors
+[static_object_counting::UZQZ2fAoTn4::221] done — 85 replies
+MMDuet2 OmniPro:  10%|█         | 44/432 [3:47:26<150:42:10, 1398.28s/it][static_object_counting::8nFoJWmeLoM::226] 64 frames, 63.5s video
+[static_object_counting::8nFoJWmeLoM::226] done — 3 replies
+MMDuet2 OmniPro:  10%|█         | 45/432 [3:47:47<105:53:15, 985.00s/it] [static_object_counting::IenLTYaTvuY::253] 61 frames, 60.3s video
+[static_object_counting::IenLTYaTvuY::253] done — 1 replies
+MMDuet2 OmniPro:  11%|█         | 46/432 [3:48:05<74:31:44, 695.09s/it] [static_object_counting::HkAejSLGEUU::259] 215 frames, 214.7s video
+[static_object_counting::HkAejSLGEUU::259] done — 2 replies
+MMDuet2 OmniPro:  11%|█         | 47/432 [3:50:38<56:55:45, 532.33s/it][static_object_counting::QtNzGm-nICg::265] 263 frames, 263.0s video
+[static_object_counting::QtNzGm-nICg::265] done — 4 replies
+MMDuet2 OmniPro:  11%|█         | 48/432 [3:54:33<47:16:25, 443.19s/it][static_object_counting::-l9fxSCGJ4M::267] 156 frames, 155.7s video
+[static_object_counting::-l9fxSCGJ4M::267] done — 2 replies
+MMDuet2 OmniPro:  11%|█▏        | 49/432 [3:55:59<35:45:46, 336.15s/it][static_object_counting::A0l8fhxoWpY::280] 143 frames, 142.3s video
+[static_object_counting::A0l8fhxoWpY::280] done — 2 replies
+MMDuet2 OmniPro:  12%|█▏        | 50/432 [3:57:14<27:20:02, 257.60s/it][static_object_counting::M5FfhpgIPCs::285] 78 frames, 78.0s video
+[static_object_counting::M5FfhpgIPCs::285] done — 2 replies
+MMDuet2 OmniPro:  12%|█▏        | 51/432 [3:57:41<19:57:18, 188.55s/it][static_object_counting::YxguQMKgaUk::297] 102 frames, 102.0s video
+[static_object_counting::YxguQMKgaUk::297] done — 1 replies
+MMDuet2 OmniPro:  12%|█▏        | 52/432 [3:58:22<15:13:05, 144.17s/it][realtime_state_monitor::0kpiM7TWDZY::1] 201 frames, 200.4s video
+[realtime_state_monitor::0kpiM7TWDZY::1] done — 0 replies
+MMDuet2 OmniPro:  12%|█▏        | 53/432 [4:00:35<14:49:29, 140.82s/it][realtime_state_monitor::6RGTgYM1mwk::5] 57 frames, 57.0s video
+[realtime_state_monitor::6RGTgYM1mwk::5] done — 16 replies
+MMDuet2 OmniPro:  12%|█▎        | 54/432 [4:01:21<11:47:54, 112.37s/it][realtime_state_monito[realtime_state_monitor::2a0O3-5Fpyw::8] done — 139 replies
+MMDuet2 OmniPro:  13%|█▎        | 55/432 [4:19:47<76:13:33, 727.89s/it][realtime_state_monitor::Y6cvMS8s0MM::9] 103 frames, 103.0s video
+[realtime_state_monitor::Y6cvMS8s0MM::9] done — 19 replies
+MMDuet2 OmniPro:  13%|█▎        | 56/432 [4:20:55<55:19:49, 529.76s/it][realtime_state_monitor::-eBOaccLCGs::12] 110 frames, 109.7s video
+[realtime_state_monitor::-eBOaccLCGs::12] done — 2 replies
+MMDuet2 OmniPro:  13%|█▎        | 57/432 [4:21:43<40:08:33, 385.37s/it][realtime_state_monitor::BcFpM4upfxo::14] 77 frames, 76.1s video
+[realtime_state_monitor::BcFpM4upfxo::14] done — 4 replies
+MMDuet2 OmniPro:  13%|█▎        | 58/432 [4:22:10<28:52:02, 277.87s/it][realtime_state_monitor::WP1ZDZMhja0::18] 458 frames, 457.4s video
+[realtime_state_monitor::WP1ZDZMhja0::18] done — 0 replies
+MMDuet2 OmniPro:  14%|█▎        | 59/432 [4:36:10<46:15:38, 446.48s/it][realtime_state_monitor::pVtGU9nVZbg::24] 559 frames, 558.4s video
+[realtime_state_monitor::pVtGU9nVZbg::24] done — 184 replies
+MMDuet2 OmniPro:  14%|█▍        | 60/432 [5:09:37<94:30:17, 914.56s/it][realtime_state_monitor::9HXh3hYMDGM::26] 177 frames, 176.4s video
+[realtime_state_monitor::9HXh3hYMDGM::26] done — 2 replies
+MMDuet2 OmniPro:  14%|█▍        | 61/432 [5:11:35<69:37:10, 675.55s/it][realtime_state_monitor::YJV5yWfrB98::27] 153 frames, 152.9s video
+[realtime_state_monitor::YJV5yWfrB98::27] done — 41 replies
+MMDuet2 OmniPro:  14%|█▍        | 62/432 [5:14:14<53:30:46, 520.66s/it][realtime_state_monitor::9AffWPWL9RM::30] 175 frames, 174.6s video
+[realtime_state_monitor::9AffWPWL9RM::30] done — 37 replies
+MMDuet2 OmniPro:  15%|█▍        | 63/432 [5:16:53<42:13:51, 412.01s/it][realtime_state_monitor::lfZSuCIoQXA::35] 117 frames, 116.2s video
+[realtime_state_monitor::lfZSuCIoQXA::35] done — 0 replies
+MMDuet2 OmniPro:  15%|█▍        | 64/432 [5:17:45<31:04:13, 303.95s/it][realtime_state_monitor::3MI7OZ-BlgE::36] 134 frames, 133.8s video
+[realtime_state_monitor::3MI7OZ-BlgE::36] done — 54 replies
+MMDuet2 OmniPro:  15%|█▌        | 65/432 [5:20:05<25:58:45, 254.84s/it][realtime_state_monitor::vSgLQ4yI6dI::38] 74 frames, 73.5s video
+[realtime_state_monitor::vSgLQ4yI6dI::38] done — 13 replies
+MMDuet2 OmniPro:  15%|█▌        | 66/432 [5:20:40<19:12:10, 188.88s/it][realtime_state_monitor::xZQCrBEWOOM::39] 275 frames, 274.4s video
+[realtime_state_monitor::xZQCrBEWOOM::39] done — 74 replies
+MMDuet2 OmniPro:  16%|█▌        | 67/432 [5:26:49<24:37:25, 242.87s/it][realtime_state_monitor::26BT7YzpzQs::44] 528 frames, 527.7s video
+[realtime_state_monitor::26BT7YzpzQs::44] done — 32 replies
+MMDuet2 OmniPro:  16%|█▌        | 68/432 [5:45:38<51:26:11, 508.71s/it][realtime_state_monitor::koEB4XPd9IM::46] 232 frames, 231.1s video
+[realtime_state_monitor::koEB4XPd9IM::46] done — 5 replies
+MMDuet2 OmniPro:  16%|█▌        | 69/432 [5:48:40<41:25:22, 410.81s/it][realtime_state_monitor::CQrEyrW2REc::50] 163 frames, 162.5s video
+[realtime_state_monitor::CQrEyrW2REc::50] done — 0 replies
+MMDuet2 OmniPro:  16%|█▌        | 70/432 [5:50:12<31:41:16, 315.13s/it][realtime_state_monitor::q__k5o5SgT8::51] 165 frames, 164.5s video
+[realtime_state_monitor::q__k5o5SgT8::51] done — 17 replies
+MMDuet2 OmniPro:  16%|█▋        | 71/432 [5:52:05<25:32:10, 254.66s/it][realtime_state_monitor::lT1wTF2LJHs::60] 66 frames, 65.9s video
+[realtime_state_monitor::lT1wTF2LJHs::60] done — 5 replies
+MMDuet2 OmniPro:  17%|█▋        | 72/432 [5:52:30<18:33:04, 185.51s/it][realtime_state_monitor::wq9wywa4xiM::65] 59 frames, 58.2s video
+[realtime_state_monitor::wq9wywa4xiM::65] done — 15 replies
+MMDuet2 OmniPro:  17%|█▋        | 73/432 [5:53:19<14:24:57, 144.56s/it][realtime_state_monitor::LlAKcJ-DE88::66] 87 frames, 86.5s video
+[realtime_state_monitor::LlAKcJ-DE88::66] done — 16 replies
+MMDuet2 OmniPro:  17%|█▋        | 74/432 [5:54:08<11:32:26, 116.05s/it][realtime_state_monitor::sO3wd7X-l7U::68] 61 frames, 60.1s video
+[realtime_state_monitor::sO3wd7X-l7U::68] done — 14 replies
+MMDuet2 OmniPro:  17%|█▋        | 75/432 [5:54:38<8:56:27, 90.16s/it]  [realtime_state_monitor::PMzvDRDYCr8::74] 278 frames, 277.1s video
+[realtime_state_monitor::PMzvDRDYCr8::74] done — 0 replies
+MMDuet2 OmniPro:  18%|█▊        | 76/432 [5:58:58<13:57:31, 141.16s/it][realtime_state_monitor::5WaqH41u7n8::79] 248 frames, 247.3s video
+[realtime_state_monitor::5WaqH41u7n8::79] done — 2 replies
+MMDuet2 OmniPro:  18%|█▊        | 77/432 [6:02:28<15:56:44, 161.70s/it][realtime_state_monitor::QLG-3jNLfH0::82] 80 frames, 79.1s video
+[realtime_state_monitor::QLG-3jNLfH0::82] done — 5 replies
+MMDuet2 OmniPro:  18%|█▊        | 78/432 [6:02:58<12:02:18, 122.43s/it][realtime_state_monitor::40SL-m4u-LQ::83] 209 frames, 208.2s video
+[realtime_state_monitor::40SL-m4u-LQ::83] done — 0 replies
+MMDuet2 OmniPro:  18%|█▊        | 79/432 [6:05:23<12:39:16, 129.06s/it][realtime_state_monitor::PZB-IvTq1u8::85] 130 frames, 129.1s video
+[realtime_state_monitor::PZB-IvTq1u8::85] done — 0 replies
+MMDuet2 OmniPro:  19%|█▊        | 80/432 [6:06:25<10:39:01, 108.92s/it][realtime_state_monitor::mDSFARouUS0::86] 261 frames, 260.3s video
+[realtime_state_monitor::mDSFARouUS0::86] done — 100 replies
+MMDuet2 OmniPro:  19%|█▉        | 81/432 [6:13:42<20:12:27, 207.26s/it][realtime_state_monitor::58oXInI52OE::90] 107 frames, 106.6s video
+[realtime_state_monitor::58oXInI52OE::90] done — 13 replies
+MMDuet2 OmniPro:  19%|█▉        | 82/432 [6:14:37<15:43:45, 161.79s/it][realtime_state_monitor::9dzOr4b5qFs::94] 60 frames, 60.0s video
+[realtime_state_monitor::9dzOr4b5qFs::94] done — 1 replies
+MMDuet2 OmniPro:  19%|█▉        | 83/432 [6:14:55<11:29:44, 118.58s/it][realtime_state_monitor::3PSDRMdp2Yc::98] 326 frames, 325.6s video
+[realtime_state_monitor::3PSDRMdp2Yc::98] done — 123 replies
+MMDuet2 OmniPro:  19%|█▉        | 84/432 [6:27:18<29:34:02, 305.87s/it][realtime_state_monitor::qVe2ZCK87bc::99] 93 frames, 92.4s video
+[realtime_state_monitor::qVe2ZCK87bc::99] done — 10 replies
+MMDuet2 OmniPro:  20%|█▉        | 85/432 [6:28:05<22:00:00, 228.24s/it][realtime_state_monitor::UldXRipkEno::100] 99 frames, 98.5s video
+[realtime_state_monitor::UldXRipkEno::100] done — 3 replies
+MMDuet2 OmniPro:  20%|█▉        | 86/432 [6:28:46<16:32:49, 172.17s/it][realtime_state_monitor::uEQhiiFCvFI::106] 42 frames, 41.9s video
+[realtime_state_monitor::uEQhiiFCvFI::106] done — 1 replies
+MMDuet2 OmniPro:  20%|██        | 87/432 [6:28:57<11:50:52, 123.63s/it][realtime_state_monitor::lMrBZWxYY60::112] 182 frames, 181.6s video
+[realtime_state_monitor::lMrBZWxYY60::112] done — 35 replies
+MMDuet2 OmniPro:  20%|██        | 88/432 [6:31:49<13:12:04, 138.15s/it][realtime_state_monitor::xknwKPCmZKM::114] 56 frames, 56.0s video
+[realtime_state_monitor::xknwKPCmZKM::114] done — 0 replies
+MMDuet2 OmniPro:  21%|██        | 89/432 [6:32:04<9:38:39, 101.22s/it] [realtime_state_monitor::GV94WLtL1nI::115] 115 frames, 114.7s video
+[realtime_state_monitor::GV94WLtL1nI::115] done — 9 replies
+MMDuet2 OmniPro:  21%|██        | 90/432 [6:33:00<8:19:04, 87.56s/it] [realtime_state_monitor::liertmG3u_s::116] 81 frames, 80.3s video
+[realtime_state_monitor::liertmG3u_s::116] done — 0 replies
+MMDuet2 OmniPro:  21%|██        | 91/432 [6:33:27<6:35:09, 69.53s/it][realtime_state_monitor::r8G8byiQ5Nc::117] 84 frames, 83.8s video
+[realtime_state_monitor::r8G8byiQ5Nc::117] done — 11 replies
+MMDuet2 OmniPro:  21%|██▏       | 92/432 [6:34:12<5:52:46, 62.25s/it][realtime_state_monitor::KFpK0Z8FVyI::119] 281 frames, 280.8s video
+[realtime_state_monitor::KFpK0Z8FVyI::119] done — 106 replies
+MMDuet2 OmniPro:  22%|██▏       | 93/432 [6:44:04<20:49:39, 221.18s/it][realtime_state_monitor::oEqor1rscMY::123] 171 frames, 170.9s video
+[realtime_state_monitor::oEqor1rscMY::123] done — 6 replies
+MMDuet2 OmniPro:  22%|██▏       | 94/432 [6:45:50<17:30:23, 186.46s/it][realtime_state_monitor::U9hsD7kIR-s::126] 64 frames, 63.2s video
+[realtime_state_monitor::U9hsD7kIR-s::126] done — 1 replies
+MMDuet2 OmniPro:  22%|██▏       | 95/432 [6:46:09<12:44:51, 136.18s/it][realtime_state_monitor::1zjizzVY_H4::128] 142 frames, 142.0s video
+[realtime_state_monitor::1zjizzVY_H4::128] done — 36 replies
+MMDuet2 OmniPro:  22%|██▏       | 96/432 [6:48:02<12:04:22, 129.35s/it][realtime_state_monitor::RCwTPOjyNUM::131] 171 frames, 170.6s video
+[realtime_state_monitor::RCwTPOjyNUM::131] done — 16 replies
+MMDuet2 OmniPro:  22%|██▏       | 97/432 [6:50:06<11:53:21, 127.77s/it][realtime_state_monitor::pDHenIEC7pk::135] 204 frames, 203.6s video
+[realtime_state_monitor::pDHenIEC7pk::135] done — 59 replies
+MMDuet2 OmniPro:  23%|██▎       | 98/432 [6:54:02<14:51:19, 160.12s/it][realtime_state_monitor::LDGJ8ykqlWE::137] 130 frames, 129.6s video
+[realtime_state_monitor::LDGJ8ykqlWE::137] done — 43 replies
+MMDuet2 OmniPro:  23%|██▎       | 99/432 [6:57:26<16:02:13, 173.37s/it][realtime_state_monitor::UkCJqA7561I::140] 390 frames, 389.7s video
+[realtime_state_monitor::UkCJqA7561I::140] done — 79 replies
+MMDuet2 OmniPro:  23%|██▎       | 100/432 [7:23:15<54:03:42, 586.21s/it][realtime_state_monitor::05j4tIvoC8o::143] 81 frames, 80.2s video
+[realtime_state_monitor::05j4tIvoC8o::143] done — 14 replies
+MMDuet2 OmniPro:  23%|██▎       | 101/432 [7:24:05<39:04:59, 425.07s/it][realtime_state_monitor::pQj1SQtprF0::146] 182 frames, 181.2s video
+[realtime_state_monitor::pQj1SQtprF0::146] done — 70 replies
+MMDuet2 OmniPro:  24%|██▎       | 102/432 [7:27:42<33:15:25, 362.81s/it][realtime_state_monitor::oBvw8UmeeHs::147] 138 frames, 137.4s video
+[realtime_state_monitor::oBvw8UmeeHs::147] done — 12 replies
+MMDuet2 OmniPro:  24%|██▍       | 103/432 [7:29:03<25:25:20, 278.18s/it][realtime_state_monitor::CL4qjTsj0i8::148] 293 frames, 292.8s video
+[realtime_state_monitor::CL4qjTsj0i8::148] done — 0 replies
+MMDuet2 OmniPro:  24%|██▍       | 104/432 [7:33:56<25:44:37, 282.55s/it][realtime_state_monitor::6rho9EbHtyc::150] 36 frames, 36.0s video
+[realtime_state_monitor::6rho9EbHtyc::150] done — 1 replies
+MMDuet2 OmniPro:  24%|██▍       | 105/432 [7:34:04<18:11:33, 200.28s/it][realtime_state_monitor::n3fCfTKfWOM::155] 201 frames, 200.5s video
+[realtime_state_monitor::n3fCfTKfWOM::155] done — 61 replies
+MMDuet2 OmniPro:  25%|██▍       | 106/432 [7:37:57<19:01:05, 210.02s/it][realtime_state_monitor::78F_Y4y3oXw::160] 90 frames, 89.6s video
+[realtime_state_monitor::78F_Y4y3oXw::160] done — 0 replies
+MMDuet2 OmniPro:  25%|██▍       | 107/432 [7:38:30<14:10:13, 156.97s/it][realtime_state_monitor::3P3dgKrMtc0::162] 179 frames, 178.7s video
+[realtime_state_monitor::3P3dgKrMtc0::162] done — 57 replies
+MMDuet2 OmniPro:  25%|██▌       | 108/432 [7:41:42<15:04:11, 167.44s/it][realtime_state_monitor::82U_y1WJ13A::174] 486 frames, 485.3s video
+[realtime_state_monitor::82U_y1WJ13A::174] done — 0 replies
+MMDuet2 OmniPro:  25%|██▌       | 109/432 [7:56:42<34:45:35, 387.42s/it][realtime_state_monitor::1ZDmY-UmKfY::178] 58 frames, 57.3s video
+[realtime_state_monitor::1ZDmY-UmKfY::178] done — 0 replies
+MMDuet2 OmniPro:  25%|██▌       | 110/432 [7:56:59<24:41:25, 276.04s/it][realtime_state_monitor::x8G-pQ4b6aM::183] 129 frames, 128.3s video
+[realtime_state_monitor::x8G-pQ4b6aM::183] done — 26 replies
+MMDuet2 OmniPro:  26%|██▌       | 111/432 [8:00:04<22:10:49, 248.75s/it][realtime_state_monitor::U0Xg-QFdVSA::186] 351 frames, 350.3s video
+[realtime_state_monitor::U0Xg-QFdVSA::186] done — 0 replies
+MMDuet2 OmniPro:  26%|██▌       | 112/432 [8:07:22<27:09:41, 305.57s/it][realtime_state_monitor::BuoZDMr3Bok::192] 48 frames, 47.8s video
+[realtime_state_monitor::BuoZDMr3Bok::192] done — 3 replies
+MMDuet2 OmniPro:  26%|██▌       | 113/432 [8:07:35<19:18:48, 217.96s/it][realtime_state_monitor::1dikAGqQ3hs::194] 187 frames, 186.7s video
+[realtime_state_monitor::1dikAGqQ3hs::194] done — 0 replies
+MMDuet2 OmniPro:  26%|██▋       | 114/432 [8:09:32<16:33:58, 187.54s/it][realtime_state_monitor::vWJJfVRnm_w::196] 231 frames, 231.0s video
+[realtime_state_monitor::vWJJfVRnm_w::196] done — 31 replies
+MMDuet2 OmniPro:  27%|██▋       | 115/432 [8:13:19<17:33:49, 199.46s/it][realtime_state_monitor::L1ZkHoirlmo::199] 46 frames, 45.7s video
+[realtime_state_monitor::L1ZkHoirlmo::199] done — 0 replies
+MMDuet2 OmniPro:  27%|██▋       | 116/432 [8:13:31<12:33:40, 143.10s/it][realtime_state_monitor::U_yDpCSi0bQ::201] 69 frames, 68.5s video
+[realtime_state_monitor::U_yDpCSi0bQ::201] done — 6 replies
+MMDuet2 OmniPro:  27%|██▋       | 117/432 [8:13:56<9:25:32, 107.72s/it] [realtime_state_monitor::o0MMAUX2dCo::206] 63 frames, 62.4s video
+[realtime_state_monitor::o0MMAUX2dCo::206] done — 0 replies
+MMDuet2 OmniPro:  27%|██▋       | 118/432 [8:14:15<7:04:12, 81.06s/it] [realtime_state_monitor::Kh9MP3gY2nM::208] 299 frames, 298.3s video
+[realtime_state_monitor::Kh9MP3gY2nM::208] done — 11 replies
+MMDuet2 OmniPro:  28%|██▊       | 119/432 [8:19:32<13:11:47, 151.78s/it][realtime_state_monitor::m0zWJ7A4bNk::214] 245 frames, 244.4s video
+[realtime_state_monitor::m0zWJ7A4bNk::214] done — 27 replies
+MMDuet2 OmniPro:  28%|██▊       | 120/432 [8:23:34<15:30:35, 178.96s/it][realtime_state_monitor::qH7vE-Jpiz0::215] 164 frames, 163.9s video
+[realtime_state_monitor::qH7vE-Jpiz0::215] done — 68 replies
+MMDuet2 OmniPro:  28%|██▊       | 121/432 [8:37:07<31:53:33, 369.17s/it][realtime_state_monitor::0J0Tjqc4efY::216] 227 frames, 226.3s video
+[realtime_state_monitor::0J0Tjqc4efY::216] done — 0 replies
+MMDuet2 OmniPro:  28%|██▊       | 122/432 [8:40:00<26:43:12, 310.30s/it][realtime_state_monitor::sFoAnNWUmc4::221] 145 frames, 144.2s video
+[realtime_state_monitor::sFoAnNWUmc4::221] done — 4 replies
+MMDuet2 OmniPro:  28%|██▊       | 123/432 [8:41:22<20:45:22, 241.82s/it][realtime_state_monitor::pXEA_KJgRmU::222] 203 frames, 202.5s video
+[realtime_state_monitor::pXEA_KJgRmU::222] done — 70 replies
+MMDuet2 OmniPro:  29%|██▊       | 124/432 [8:45:29<20:50:00, 243.51s/it][realtime_state_monitor::s6Mq_rKuJQ8::230] 135 frames, 134.8s video
+[realtime_state_monitor::s6Mq_rKuJQ8::230] done — 31 replies
+MMDuet2 OmniPro:  29%|██▉       | 125/432 [8:47:12<17:09:27, 201.20s/it][realtime_state_monitor::w2nmzwknVco::232] 82 frames, 81.8s video
+[realtime_state_monitor::w2nmzwknVco::232] done — 3 replies
+MMDuet2 OmniPro:  29%|██▉       | 126/432 [8:47:41<12:43:04, 149.62s/it][realtime_state_monitor::6Hb8uzHLA2Q::233] 67 frames, 66.7s video
+[realtime_state_monitor::6Hb8uzHLA2Q::233] done — 15 replies
+MMDuet2 OmniPro:  29%|██▉       | 127/432 [8:48:15<9:44:22, 114.96s/it] [realtime_state_monitor::pxgfIClP1XU::234] 247 frames, 246.3s video
+[realtime_state_monitor::pxgfIClP1XU::234] done — 10 replies
+MMDuet2 OmniPro:  30%|██▉       | 128/432 [8:51:40<11:59:39, 142.04s/it][realtime_state_monitor::VGCmpZTvSm8::238] 41 frames, 40.3s video
+[realtime_state_monitor::VGCmpZTvSm8::238] done — 3 replies
+MMDuet2 OmniPro:  30%|██▉       | 129/432 [8:51:53<8:40:40, 103.10s/it] [realtime_state_monitor::m1ESWlMVugc::241] 172 frames, 171.0s video
+[realtime_state_monitor::m1ESWlMVugc::241] done — 4 replies
+MMDuet2 OmniPro:  30%|███       | 130/432 [8:53:32<8:34:06, 102.14s/it][realtime_state_monitor::sLvkYYSVjow::243] 106 frames, 105.8s video
+[realtime_state_monitor::sLvkYYSVjow::243] done — 11 replies
+MMDuet2 OmniPro:  30%|███       | 131/432 [8:54:24<7:16:21, 86.98s/it] [realtime_state_monitor::nrb4TpkTszs::244] 487 frames, 486.5s video
+[realtime_state_monitor::nrb4TpkTszs::244] done — 0 replies
+MMDuet2 OmniPro:  31%|███       | 132/432 [9:09:28<27:40:49, 332.17s/it][realtime_state_monitor::-p1bAo2wbNA::247] 55 frames, 54.9s video
+[realtime_state_monitor::-p1bAo2wbNA::247] done — 0 replies
+MMDuet2 OmniPro:  31%|███       | 133/432 [9:09:44<19:41:38, 237.12s/it][realtime_state_monitor::TJMrW-vgNz0::249] 393 frames, 392.1s video
+[realtime_state_monitor::TJMrW-vgNz0::249] done — 0 replies
+MMDuet2 OmniPro:  31%|███       | 134/432 [9:19:07<27:44:23, 335.11s/it][realtime_state_monitor::AD5MFhTOQp0::251] 86 frames, 85.6s video
+[realtime_state_monitor::AD5MFhTOQp0::251] done — 18 replies
+MMDuet2 OmniPro:  31%|███▏      | 135/432 [9:19:53<20:29:25, 248.37s/it][realtime_state_monitor::CR55TVLjTzc::266] 595 frames, 594.6s video
+[realtime_state_monitor::CR55TVLjTzc::266] done — 222 replies
+MMDuet2 OmniPro:  31%|███▏      | 136/432 [10:02:45<77:43:46, 945.36s/it][realtime_state_monitor::DLBbSgu_JdM::270] 185 frames, 184.8s video
+[realtime_state_monitor::DLBbSgu_JdM::270] done — 28 replies
+MMDuet2 OmniPro:  32%|███▏      | 137/432 [10:05:16<57:56:36, 707.11s/it][realtime_state_monitor::-ZvLZrWsFAc::272] 96 frames, 95.8s video
+[realtime_state_monitor::-ZvLZrWsFAc::272] done — 30 replies
+MMDuet2 OmniPro:  32%|███▏      | 138/432 [10:06:30<42:13:44, 517.09s/it][realtime_state_monitor::Uu1mGBeAQPg::276] 465 frames, 464.8s video
+[realtime_state_monitor::Uu1mGBeAQPg::276] done — 0 replies
+MMDuet2 OmniPro:  32%|███▏      | 139/432 [10:19:37<48:40:32, 598.06s/it][realtime_state_monitor::nr8_sVTk2ME::278] 189 frames, 188.5s video
+[realtime_state_monitor::nr8_sVTk2ME::278] done — 68 replies
+MMDuet2 OmniPro:  32%|███▏      | 140/432 [10:24:06<40:30:07, 499.34s/it][realtime_state_monitor::x2AfLlYiFCw::279] 67 frames, 67.0s video
+[realtime_state_monitor::x2AfLlYiFCw::279] done — 26 replies
+MMDuet2 OmniPro:  33%|███▎      | 141/432 [10:25:07<29:43:21, 367.70s/it][realtime_state_monitor::2mo2OQCFlfY::281] 236 frames, 235.9s video
+[realtime_state_monitor::2mo2OQCFlfY::281] done — 5 replies
+MMDuet2 OmniPro:  33%|███▎      | 142/432 [10:28:14<25:16:21, 313.73s/it][realtime_state_monitor::YZYYVnB0lB8::283] 108 frames, 107.4s video
+[realtime_state_monitor::YZYYVnB0lB8::283] done — 9 replies
+MMDuet2 OmniPro:  33%|███▎      | 143/432 [10:29:07<18:53:18, 235.29s/it][realtime_state_monitor::XFn81D-EiNE::285] 130 frames, 129.3s video
+[realtime_state_monitor::XFn81D-EiNE::285] done — 7 replies
+MMDuet2 OmniPro:  33%|███▎      | 144/432 [10:30:14<14:47:40, 184.93s/it][realtime_state_monitor::pvSVznXAbug::289] 121 frames, 120.9s video
+[realtime_state_monitor::pvSVznXAbug::289] done — 0 replies
+MMDuet2 OmniPro:  34%|███▎      | 145/432 [10:31:07<11:35:53, 145.48s/it][realtime_state_monitor::2RgzTn6vV54::291] 126 frames, 125.6s video
+[realtime_state_monitor::2RgzTn6vV54::291] done — 50 replies
+MMDuet2 OmniPro:  34%|███▍      | 146/432 [10:33:28<11:25:42, 143.85s/it][realtime_state_monitor::TTnnYgoi2FA::292] 316 frames, 315.4s video
+[realtime_state_monitor::TTnnYgoi2FA::292] done — 84 replies
+MMDuet2 OmniPro:  34%|███▍      | 147/432 [10:41:27<19:21:45, 244.58s/it][realtime_state_monitor::ME49XGmzzjg::294] 87 frames, 86.5s video
+[realtime_state_monitor::ME49XGmzzjg::294] done — 0 replies
+MMDuet2 OmniPro:  34%|███▍      | 148/432 [10:41:57<14:13:27, 180.31s/it][realtime_state_monitor::2zaCRi7-eW8::297] 347 frames, 346.2s video
+[realtime_state_monitor::2zaCRi7-eW8::297] done — 0 replies
+MMDuet2 OmniPro:  34%|███▍      | 149/432 [10:48:45<19:32:32, 248.60s/it][realtime_state_monitor::YXq2bLCAljg::298] 162 frames, 161.9s video
+[realtime_state_monitor::YXq2bLCAljg::298] done — 28 replies
+MMDuet2 OmniPro:  35%|███▍      | 150/432 [10:51:04<16:53:13, 215.58s/it][semantic_condition_alert::DLBbSgu_JdM::12] 185 frames, 184.8s video
+[semantic_condition_alert::DLBbSgu_JdM::12] done — 2 replies
+MMDuet2 OmniPro:  35%|███▍      | 151/432 [10:53:01<14:31:24, 186.07s/it][semantic_condition_alert::36Ush_U7z-c::48] 108 frames, 107.0s video
+[semantic_condition_alert::36Ush_U7z-c::48] done — 1 replies
+MMDuet2 OmniPro:  35%|███▌      | 152/432 [10:53:47<11:11:53, 143.98s/it][semantic_condition_alert::YJV5yWfrB98::95] 153 frames, 152.9s video
+[semantic_condition_alert::YJV5yWfrB98::95] done — 17 replies
+MMDuet2 OmniPro:  35%|███▌      | 153/432 [10:55:28<10:09:35, 131.10s/it][semantic_condition_alert::N56253QAq_o::169] 132 frames, 131.8s video
+[semantic_condition_alert::N56253QAq_o::169] done — 1 replies
+MMDuet2 OmniPro:  36%|███▌      | 154/432 [10:56:32<8:34:34, 111.06s/it] [semantic_condition_alert::dA2PeQKIWWI::199] 138 frames, 137.2s video
+[semantic_condition_alert::dA2PeQKIWWI::199] done — 5 replies
+MMDuet2 OmniPro:  36%|███▌      | 155/432 [10:57:45<7:39:29, 99.53s/it] [semantic_condition_alert::pvSVznXAbug::210] 121 frames, 120.9s video
+[semantic_condition_alert::pvSVznXAbug::210] done — 48 replies
+MMDuet2 OmniPro:  36%|███▌      | 156/432 [11:02:11<11:27:23, 149.43s/it][semantic_condition_alert::ospuzS4zfdE::231] 63 frames, 62.5s video
+[semantic_condition_alert::ospuzS4zfdE::231] done — 15 replies
+MMDuet2 OmniPro:  36%|███▋      | 157/432 [11:02:48<8:51:17, 115.92s/it] [semantic_condition_alert::GvBRNnsucao::260] 163 frames, 163.0s video
+[semantic_condition_alert::GvBRNnsucao::260] done — 14 replies
+MMDuet2 OmniPro:  37%|███▋      | 158/432 [11:04:36<8:37:23, 113.30s/it][semantic_condition_alert::YnUdAck_oM0::261] 56 frames, 55.4s video
+[semantic_condition_alert::YnUdAck_oM0::261] done — 0 replies
+MMDuet2 OmniPro:  37%|███▋      | 159/432 [11:04:51<6:22:20, 84.03s/it] [semantic_condition_alert::sNm_rmkzt3Y::265] 42 frames, 41.1s video
+[semantic_condition_alert::sNm_rmkzt3Y::265] done — 13 replies
+MMDuet2 OmniPro:  37%|███▋      | 160/432 [11:05:23<5:10:03, 68.39s/it][semantic_condition_alert::MnnT5w7Uey8::293] 219 frames, 218.7s video
+[semantic_condition_alert::MnnT5w7Uey8::293] done — 59 replies
+MMDuet2 OmniPro:  37%|███▋      | 161/432 [11:09:05<8:36:51, 114.43s/it][dedup_counting::-powI0eeLbw::1] 53 frames, 52.4s video
+[dedup_counting::-powI0eeLbw::1] done — 7 replies
+MMDuet2 OmniPro:  38%|███▊      | 162/432 [11:09:27<6:30:11, 86.71s/it] [dedup_counting::15GCaMdApS4::5] 119 frames, 118.8s video
+[dedup_counting::15GCaMdApS4::5] done — 6 replies
+MMDuet2 OmniPro:  38%|███▊      | 163/432 [11:10:25<5:49:23, 77.93s/it][dedup_counting::0kpiM7TWDZY::6] 201 frames, 200.4s video
+[dedup_counting::0kpiM7TWDZY::6] done — 4 replies
+MMDuet2 OmniPro:  38%|███▊      | 164/432 [11:12:41<7:05:56, 95.36s/it][dedup_counting::0dJSPsXCujc::7] 421 frames, 420.6s video
+[dedup_counting::0dJSPsXCujc::7] done — 4 replies
+MMDuet2 OmniPro:  38%|███▊      | 165/432 [11:23:14<19:02:34, 256.76s/it][dedup_counting::1ZXaltWuJ5U::9] 107 frames, 106.8s video
+[dedup_counting::1ZXaltWuJ5U::9] done — 3 replies
+MMDuet2 OmniPro:  38%|███▊      | 166/432 [11:23:59<14:16:59, 193.31s/it][dedup_counting::1ZDmY-UmKfY::11] 58 frames, 57.3s video
+[dedup_counting::1ZDmY-UmKfY::11] done — 5 replies
+MMDuet2 OmniPro:  39%|███▊      | 167/432 [11:24:18<10:21:56, 140.82s/it][dedup_counting::0zoM5qZTjRo::13] 312 frames, 311.4s video
+[dedup_counting::0zoM5qZTjRo::13] done — 64 replies
+MMDuet2 OmniPro:  39%|███▉      | 168/432 [11:41:39<30:08:52, 411.11s/it][dedup_counting::1_SqWC582dw::14] 156 frames, 155.2s video
+[dedup_counting::1_SqWC582dw::14] done — 12 replies
+MMDuet2 OmniPro:  39%|███▉      | 169/432 [11:43:17<23:09:51, 317.08s/it][dedup_counting::1SwvQVV5fug::15] 364 frames, 363.3s video
+[dedup_counting::1SwvQVV5fug::15] done — 7 replies
+MMDuet2 OmniPro:  39%|███▉      | 170/432 [11:51:00<26:16:08, 360.95s/it][dedup_counting::1dikAGqQ3hs::16] 187 frames, 186.7s video
+[dedup_counting::1dikAGqQ3hs::16] done — 4 replies
+MMDuet2 OmniPro:  40%|███▉      | 171/432 [11:52:59<20:53:53, 288.25s/it][dedup_counting::1yIth_rknTo::17] 193 frames, 192.5s video
+[dedup_counting::1yIth_rknTo::17] done — 6 replies
+MMDuet2 OmniPro:  40%|███▉      | 172/432 [11:55:06<17:19:18, 239.84s/it][dedup_counting::1sM9Qs-0Vdk::18] 218 frames, 217.5s video
+[dedup_counting::1sM9Qs-0Vdk::18] done — 11 replies
+MMDuet2 OmniPro:  40%|████      | 173/432 [11:57:48<15:34:58, 216.60s/it][dedup_counting::2MwcVR6MHLA::19] 163 frames, 162.0s video
+[dedup_counting::2MwcVR6MHLA::19] done — 13 replies
+MMDuet2 OmniPro:  40%|████      | 174/432 [11:59:30<13:02:40, 182.02s/it][dedup_counting::2-V96f62kGM::20] 177 frames, 176.4s video
+[dedup_counting::2-V96f62kGM::20] done — 4 replies
+MMDuet2 OmniPro:  41%|████      | 175/432 [12:01:19<11:26:11, 160.20s/it][dedup_counting::2BByygOLXNM::21] 288 frames, 287.2s video
+[dedup_counting::2BByygOLXNM::21] done — 3 replies
+MMDuet2 OmniPro:  41%|████      | 176/432 [12:05:54<13:50:57, 194.76s/it][dedup_counting::2aw1yFx9qeo::24] 31 frames, 30.1s video
+[dedup_counting::2aw1yFx9qeo::24] done — 5 replies
+MMDuet2 OmniPro:  41%|████      | 177/432 [12:06:02<9:48:41, 138.52s/it] [dedup_counting::2Vh-xCGMLzg::25] 84 frames, 83.8s video
+[dedup_counting::2Vh-xCGMLzg::25] done — 6 replies
+MMDuet2 OmniPro:  41%|████      | 178/432 [12:06:34<7:31:46, 106.72s/it][dedup_counting::1__ERVgs9Tc::28] 241 frames, 240.2s video
+[dedup_counting::1__ERVgs9Tc::28] done — 8 replies
+MMDuet2 OmniPro:  41%|████▏     | 179/432 [12:09:47<9:18:51, 132.53s/it][dedup_counting::2vYRDokNyFI::29] 222 frames, 221.6s video
+[dedup_counting::2vYRDokNyFI::29] done — 7 replies
+MMDuet2 OmniPro:  42%|████▏     | 180/432 [12:12:29<9:53:44, 141.37s/it][dedup_counting::3ezGUOPrk9c::30] 114 frames, 113.9s video
+[dedup_counting::3ezGUOPrk9c::30] done — 6 replies
+MMDuet2 OmniPro:  42%|████▏     | 181/432 [12:13:19<7:56:52, 113.99s/it][dedup_counting::2cSIAapg7rU::31] 260 frames, 259.9s video
+[dedup_counting::2cSIAapg7rU::31] done — 23 replies
+MMDuet2 OmniPro:  42%|████▏     | 182/432 [12:17:24<10:38:57, 153.35s/it][dedup_counting::3P3dgKrMtc0::32] 179 frames, 178.7s video
+[dedup_counting::3P3dgKrMtc0::32] done — 8 replies
+MMDuet2 OmniPro:  42%|████▏     | 183/432 [12:19:24<9:54:59, 143.37s/it] [dedup_counting::3MI7OZ-BlgE::34] 134 frames, 133.8s video
+[dedup_counting::3MI7OZ-BlgE::34] done — 4 replies
+MMDuet2 OmniPro:  43%|████▎     | 184/432 [12:20:31<8:17:13, 120.30s/it][dedup_counting::2zaCRi7-eW8::35] 347 frames, 346.2s video
+[dedup_counting::2zaCRi7-eW8::35] done — 2 replies
+MMDuet2 OmniPro:  43%|████▎     | 185/432 [12:27:26<14:19:51, 208.87s/it][dedup_counting::40by4TniPds::37] 208 frames, 208.0s video
+[dedup_counting::40by4TniPds::37] done — 4 replies
+MMDuet2 OmniPro:  43%|████▎     | 186/432 [12:29:52<12:59:16, 190.07s/it][dedup_counting::498OYClQe-8::41] 156 frames, 155.1s video
+[dedup_counting::498OYClQe-8::41] done — 8 replies
+MMDuet2 OmniPro:  43%|████▎     | 187/432 [12:31:26<10:58:14, 161.20s/it][dedup_counting::4JwMlFMzh5Y::44] 201 frames, 200.6s video
+[dedup_counting::4JwMlFMzh5Y::44] done — 9 replies
+MMDuet2 OmniPro:  44%|████▎     | 188/432 [12:33:51<10:35:04, 156.17s/it][dedup_counting::5YRfsnXhq14::45] 86 frames, 85.6s video
+[dedup_counting::5YRfsnXhq14::45] done — 3 replies
+MMDuet2 OmniPro:  44%|████▍     | 189/432 [12:34:22<8:01:17, 118.84s/it] [dedup_counting::3Z3YUJHg8GE::47] 241 frames, 241.0s video
+[dedup_counting::3Z3YUJHg8GE::47] done — 21 replies
+MMDuet2 OmniPro:  44%|████▍     | 190/432 [12:38:05<10:04:30, 149.88s/it][dedup_counting::6RfXt26r1kQ::49] 113 frames, 112.6s video
+[dedup_counting::6RfXt26r1kQ::49] done — 4 replies
+MMDuet2 OmniPro:  44%|████▍     | 191/432 [12:38:55<8:01:36, 119.90s/it] [dedup_counting::7OVMkB40F9w::50] 92 frames, 91.4s video
+[dedup_counting::7OVMkB40F9w::50] done — 4 replies
+MMDuet2 OmniPro:  44%|████▍     | 192/432 [12:39:30<6:18:38, 94.66s/it] [dedup_counting::7shRl0Lxycc::52] 101 frames, 100.1s video
+[dedup_counting::7shRl0Lxycc::52] done — 19 replies
+MMDuet2 OmniPro:  45%|████▍     | 193/432 [12:40:30<5:34:54, 84.08s/it][dedup_counting::7o6KXLbuG68::53] 106 frames, 105.4s video
+[dedup_counting::7o6KXLbuG68::53] done — 13 replies
+MMDuet2 OmniPro:  45%|████▍     | 194/432 [12:41:24<4:57:47, 75.07s/it][dedup_counting::95YXm5J38-c::55] 212 frames, 211.0s video
+[dedup_counting::95YXm5J38-c::55] done — 15 replies
+MMDuet2 OmniPro:  45%|████▌     | 195/432 [12:44:02<6:34:44, 99.93s/it][dedup_counting::8wi2N5opUVE::56] 209 frames, 208.3s video
+[dedup_counting::8wi2N5opUVE::56] done — 0 replies
+MMDuet2 OmniPro:  45%|████▌     | 196/432 [12:46:27<7:26:06, 113.42s/it][dedup_counting::9AffWPWL9RM::58] 175 frames, 174.6s video
+[dedup_counting::9AffWPWL9RM::58] done — 1 replies
+MMDuet2 OmniPro:  46%|████▌     | 197/432 [12:48:12<7:14:23, 110.91s/it][dedup_counting::9b793ImfzUM::59] 71 frames, 71.0s video
+[dedup_counting::9b793ImfzUM::59] done — 6 replies
+MMDuet2 OmniPro:  46%|████▌     | 198/432 [12:48:37<5:32:49, 85.34s/it] [dedup_counting::8lhPuyetcdE::60] 68 frames, 67.4s video
+[dedup_counting::8lhPuyetcdE::60] done — 3 replies
+MMDuet2 OmniPro:  46%|████▌     | 199/432 [12:48:59<4:17:23, 66.28s/it][dedup_counting::AwoumR9RiHU::67] 138 frames, 137.1s video
+[dedup_counting::AwoumR9RiHU::67] done — 4 replies
+MMDuet2 OmniPro:  46%|████▋     | 200/432 [12:50:11<4:22:14, 67.82s/it][dedup_counting::BPsqUoZ-oh0::70] 329 frames, 328.5s video
+[dedup_counting::BPsqUoZ-oh0::70] done — 19 replies
+MMDuet2 OmniPro:  47%|████▋     | 201/432 [12:56:32<10:23:20, 161.91s/it][dedup_counting::BXpBmHYR8IE::71] 221 frames, 220.3s video
+[dedup_counting::BXpBmHYR8IE::71] done — 6 replies
+MMDuet2 OmniPro:  47%|████▋     | 202/432 [12:59:15<10:21:58, 162.25s/it][dedup_counting::C6eE1sZatBs::76] 183 frames, 182.7s video
+[dedup_counting::C6eE1sZatBs::76] done — 15 replies
+MMDuet2 OmniPro:  47%|████▋     | 203/432 [13:01:24<9:41:25, 152.34s/it] [dedup_counting::CQ4WI57FjFo::77] 94 frames, 94.0s video
+[dedup_counting::CQ4WI57FjFo::77] done — 2 replies
+MMDuet2 OmniPro:  47%|████▋     | 204/432 [13:02:02<7:28:24, 118.00s/it][dedup_counting::BBcu4EclgOs::78] 164 frames, 163.6s video
+[dedup_counting::BBcu4EclgOs::78] done — 0 replies
+MMDuet2 OmniPro:  47%|████▋     | 205/432 [13:03:36<6:59:22, 110.85s/it][dedup_counting::CR55TVLjTzc::80] 595 frames, 594.6s video
+[dedup_counting::CR55TVLjTzc::80] done — 11 replies
+MMDuet2 OmniPro:  48%|████▊     | 206/432 [13:27:05<31:23:53, 500.15s/it][dedup_counting::DZCvHDyzpXw::82] 105 frames, 104.5s video
+[dedup_counting::DZCvHDyzpXw::82] done — 4 replies
+MMDuet2 OmniPro:  48%|████▊     | 207/432 [13:27:49<22:42:57, 363.46s/it][dedup_counting::EbkcCtvNJQI::87] 99 frames, 98.2s video
+[dedup_counting::EbkcCtvNJQI::87] done — 6 replies
+MMDuet2 OmniPro:  48%|████▊     | 208/432 [13:28:32<16:37:20, 267.15s/it][dedup_counting::Fr0QhESRzH0::91] 174 frames, 173.1s video
+[dedup_counting::Fr0QhESRzH0::91] done — 0 replies
+MMDuet2 OmniPro:  48%|████▊     | 209/432 [13:30:15<13:30:26, 218.06s/it][dedup_counting::EOZpxN6w3pE::92] 505 frames, 504.1s video
+[dedup_counting::EOZpxN6w3pE::92] done — 87 replies
+MMDuet2 OmniPro:  49%|████▊     | 210/432 [14:02:46<45:29:38, 737.74s/it][dedup_counting::GOytCM4V23o::95] 121 frames, 120.0s video
+[dedup_counting::GOytCM4V23o::95] done — 3 replies
+MMDuet2 OmniPro:  49%|████▉     | 211/432 [14:03:42<32:44:24, 533.32s/it][dedup_counting::HAFLLtAcRKY::97] 53 frames, 53.0s video
+[dedup_counting::HAFLLtAcRKY::97] done — 6 replies
+MMDuet2 OmniPro:  49%|████▉     | 212/432 [14:04:00<23:08:53, 378.79s/it][dedup_counting::GGIexzDO8cg::100] 289 frames, 288.4s video
+[dedup_counting::GGIexzDO8cg::100] done — 21 replies
+MMDuet2 OmniPro:  49%|████▉     | 213/432 [14:09:03<21:39:40, 356.08s/it][dedup_counting::I1zkx0Xz8NY::106] 137 frames, 137.0s video
+[dedup_counting::I1zkx0Xz8NY::106] done — 4 replies
+MMDuet2 OmniPro:  50%|████▉     | 214/432 [14:10:13<16:21:24, 270.11s/it][dedup_counting::JaN79__iddI::112] 71 frames, 70.4s video
+[dedup_counting::JaN79__iddI::112] done — 3 replies
+MMDuet2 OmniPro:  50%|████▉     | 215/432 [14:10:37<11:49:40, 196.22s/it][dedup_counting::JaTjJmFuw_I::113] 74 frames, 73.8s video
+[dedup_counting::JaTjJmFuw_I::113] done — 5 replies
+MMDuet2 OmniPro:  50%|█████     | 216/432 [14:11:04<8:43:53, 145.53s/it] [dedup_counting::KoQeXKrSm5A::121] 237 frames, 236.8s video
+[dedup_counting::KoQeXKrSm5A::121] done — 9 replies
+MMDuet2 OmniPro:  50%|█████     | 217/432 [14:14:11<9:25:43, 157.88s/it][dedup_counting::KvX3NE3KJ9s::124] 267 frames, 266.4s video
+[dedup_counting::KvX3NE3KJ9s::124] done — 10 replies
+MMDuet2 OmniPro:  50%|█████     | 218/432 [14:18:23<11:04:40, 186.36s/it][dedup_counting::MqarNjlLyvk::135] 67 frames, 67.0s video
+[dedup_counting::MqarNjlLyvk::135] done — 5 replies
+MMDuet2 OmniPro:  51%|█████     | 219/432 [14:18:48<8:09:14, 137.82s/it] [dedup_counting::PsFHyVssjAc::141] 197 frames, 197.0s video
+[dedup_counting::PsFHyVssjAc::141] done — 1 replies
+MMDuet2 OmniPro:  51%|█████     | 220/432 [14:20:58<7:59:08, 135.61s/it][dedup_counting::QATG0ykQ1gU::144] 101 frames, 100.5s video
+[dedup_counting::QATG0ykQ1gU::144] done — 2 replies
+MMDuet2 OmniPro:  51%|█████     | 221/432 [14:21:38<6:15:33, 106.79s/it][dedup_counting::PwbBzNRNyl8::146] 265 frames, 264.3s video
+[dedup_counting::PwbBzNRNyl8::146] done — 4 replies
+MMDuet2 OmniPro:  51%|█████▏    | 222/432 [14:25:30<8:25:20, 144.38s/it][dedup_counting::QDdyEQL6F90::147] 194 frames, 193.1s video
+[dedup_counting::QDdyEQL6F90::147] done — 8 replies
+MMDuet2 OmniPro:  52%|█████▏    | 223/432 [14:27:37<8:04:09, 138.99s/it][dedup_counting::QtK2gxsTNyM::148] 202 frames, 202.0s video
+[dedup_counting::QtK2gxsTNyM::148] done — 38 replies
+MMDuet2 OmniPro:  52%|█████▏    | 224/432 [14:30:42<8:50:00, 152.89s/it][dedup_counting::QpxfKKKbEGk::151] 268 frames, 267.0s video
+[dedup_counting::QpxfKKKbEGk::151] done — 32 replies
+MMDuet2 OmniPro:  52%|█████▏    | 225/432 [14:40:05<15:51:55, 275.92s/it][dedup_counting::MJiQqWDr_lc::152] 249 frames, 248.1s video
+[dedup_counting::MJiQqWDr_lc::152] done — 23 replies
+MMDuet2 OmniPro:  52%|█████▏    | 226/432 [14:44:30<15:35:48, 272.56s/it][dedup_counting::R9KJXzVRG2Q::153] 121 frames, 120.6s video
+[dedup_counting::R9KJXzVRG2Q::153] done — 9 replies
+MMDuet2 OmniPro:  53%|█████▎    | 227/432 [14:45:31<11:54:39, 209.17s/it][dedup_counting::RE8ikWl_Hp8::154] 241 frames, 240.6s video
+[dedup_counting::RE8ikWl_Hp8::154] done — 27 replies
+MMDuet2 OmniPro:  53%|█████▎    | 228/432 [14:49:13<12:04:46, 213.17s/it][dedup_counting::RCOjAMyyPaw::155] 235 frames, 234.6s video
+[dedup_counting::RCOjAMyyPaw::155] done — 2 replies
+MMDuet2 OmniPro:  53%|█████▎    | 229/432 [14:52:16<11:30:08, 203.98s/it][dedup_counting::RThFUxN_PG4::157] 164 frames, 163.8s video
+[dedup_counting::RThFUxN_PG4::157] done — 21 replies
+MMDuet2 OmniPro:  53%|█████▎    | 230/432 [14:54:06<9:52:06, 175.87s/it] [dedup_counting::RnRcjb3MAs8::159] 57 frames, 56.3s video
+[dedup_counting::RnRcjb3MAs8::159] done — 7 replies
+MMDuet2 OmniPro:  53%|█████▎    | 231/432 [14:54:26<7:12:46, 129.18s/it][dedup_counting::RfCtrUzXJgk::160] 348 frames, 347.8s video
+[dedup_counting::RfCtrUzXJgk::160] done — 6 replies
+MMDuet2 OmniPro:  54%|█████▎    | 232/432 [15:01:15<11:50:27, 213.14s/it][dedup_counting::Rwmw4T62kvk::162] 152 frames, 151.4s video
+[dedup_counting::Rwmw4T62kvk::162] done — 5 replies
+MMDuet2 OmniPro:  54%|█████▍    | 233/432 [15:02:39<9:37:55, 174.25s/it] [dedup_counting::R6dNb64RPIE::164] 416 frames, 415.2s video
+[dedup_counting::R6dNb64RPIE::164] done — 10 replies
+MMDuet2 OmniPro:  54%|█████▍    | 234/432 [15:12:54<16:50:57, 306.35s/it][dedup_counting::Rq7Kz2wXZrY::165] 131 frames, 130.6s video
+[dedup_counting::Rq7Kz2wXZrY::165] done — 6 replies
+MMDuet2 OmniPro:  54%|█████▍    | 235/432 [15:14:01<12:51:01, 234.83s/it][dedup_counting::SB7nuM34CWg::167] 111 frames, 110.5s video
+[dedup_counting::SB7nuM34CWg::167] done — 0 replies
+MMDuet2 OmniPro:  55%|█████▍    | 236/432 [15:14:49<9:43:42, 178.69s/it] [dedup_counting::SIm5SqQfTq8::168] 142 frames, 141.8s video
+[dedup_counting::SIm5SqQfTq8::168] done — 14 replies
+MMDuet2 OmniPro:  55%|█████▍    | 237/432 [15:16:17<8:12:34, 151.56s/it][dedup_counting::TJMrW-vgNz0::170] 393 frames, 392.1s video
+[dedup_counting::TJMrW-vgNz0::170] done — 5 replies
+MMDuet2 OmniPro:  55%|█████▌    | 238/432 [15:25:23<14:32:43, 269.92s/it][dedup_counting::TXeVf42sQdM::172] 120 frames, 119.9s video
+[dedup_counting::TXeVf42sQdM::172] done — 2 replies
+MMDuet2 OmniPro:  55%|█████▌    | 239/432 [15:26:17<10:59:44, 205.10s/it][dedup_counting::U9ZHW6fAv04::174] 198 frames, 197.5s video
+[dedup_counting::U9ZHW6fAv04::174] done — 2 replies
+MMDuet2 OmniPro:  56%|█████▌    | 240/432 [15:28:31<9:47:20, 183.55s/it] [dedup_counting::TsFhCunNbX0::176] 289 frames, 288.2s video
+[dedup_counting::TsFhCunNbX0::176] done — 85 replies
+MMDuet2 OmniPro:  56%|█████▌    | 241/432 [15:40:32<18:18:19, 345.02s/it][dedup_counting::UkCJqA7561I::177] 390 frames, 389.7s video
+[dedup_counting::UkCJqA7561I::177] done — 27 replies
+MMDuet2 OmniPro:  56%|█████▌    | 242/432 [15:50:18<22:00:51, 417.11s/it][dedup_counting::Uu1mGBeAQPg::182] 465 frames, 464.8s video
+[dedup_counting::Uu1mGBeAQPg::182] done — 4 replies
+MMDuet2 OmniPro:  56%|█████▋    | 243/432 [16:03:45<28:02:09, 534.02s/it][dedup_counting::VGW4Fp3JEns::183] 229 frames, 228.2s video
+[dedup_counting::VGW4Fp3JEns::183] done — 3 replies
+MMDuet2 OmniPro:  56%|█████▋    | 244/432 [16:06:39<22:14:55, 426.04s/it][dedup_counting::VED-6BLrWFg::184] 510 frames, 509.6s video
+[dedup_counting::VED-6BLrWFg::184] done — 55 replies
+MMDuet2 OmniPro:  57%|█████▋    | 245/432 [16:24:56<32:35:13, 627.34s/it][dedup_counting::WkuUUdW0B4o::187] 164 frames, 163.4s video
+[dedup_counting::WkuUUdW0B4o::187] done — 7 replies
+MMDuet2 OmniPro:  57%|█████▋    | 246/432 [16:26:34<24:12:31, 468.55s/it][dedup_counting::WsqcSQbH-ok::188] 95 frames, 94.2s video
+[dedup_counting::WsqcSQbH-ok::188] done — 8 replies
+MMDuet2 OmniPro:  57%|█████▋    | 247/432 [16:27:15<17:29:22, 340.34s/it][dedup_counting::WyXJK36bw78::191] 357 frames, 356.6s video
+[dedup_counting::WyXJK36bw78::191] done — 8 replies
+MMDuet2 OmniPro:  57%|█████▋    | 248/432 [16:34:49<19:08:36, 374.54s/it][dedup_counting::XbpxMJ_Mz8M::192] 68 frames, 67.2s video
+[dedup_counting::XbpxMJ_Mz8M::192] done — 4 replies
+MMDuet2 OmniPro:  58%|█████▊    | 249/432 [16:35:11<13:39:46, 268.78s/it][dedup_counting::W5Wh4xCmPC4::193] 432 frames, 432.0s video
+[dedup_counting::W5Wh4xCmPC4::193] done — 133 replies
+MMDuet2 OmniPro:  58%|█████▊    | 250/432 [16:51:54<24:43:05, 488.93s/it][dedup_counting::XdDESCBRIXk::197] 306 frames, 305.5s video
+[dedup_counting::XdDESCBRIXk::197] done — 18 replies
+MMDuet2 OmniPro:  58%|█████▊    | 251/432 [16:57:23<22:10:24, 441.02s/it][dedup_counting::WQahG2BIsbc::199] 289 frames, 288.4s video
+[dedup_counting::WQahG2BIsbc::199] done — 3 replies
+MMDuet2 OmniPro:  58%|█████▊    | 252/432 [17:02:01<19:36:34, 392.19s/it][dedup_counting::Yi01srA2W_M::207] 114 frames, 114.0s video
+[dedup_counting::Yi01srA2W_M::207] done — 6 replies
+MMDuet2 OmniPro:  59%|█████▊    | 253/432 [17:02:54<14:26:25, 290.42s/it][dedup_counting::ZA8BslrJ0IQ::208] 50 frames, 49.9s video
+[dedup_counting::ZA8BslrJ0IQ::208] done — 2 replies
+MMDuet2 OmniPro:  59%|█████▉    | 254/432 [17:03:08<10:15:14, 207.38s/it][dedup_counting::ZVUAC3m48G0::211] 248 frames, 247.2s video
+[dedup_counting::ZVUAC3m48G0::211] done — 3 replies
+MMDuet2 OmniPro:  59%|█████▉    | 255/432 [17:06:31<10:08:01, 206.11s/it][dedup_counting::ZgBET1qRAmI::212] 201 frames, 200.8s video
+[dedup_counting::ZgBET1qRAmI::212] done — 10 replies
+MMDuet2 OmniPro:  59%|█████▉    | 256/432 [17:08:54<9:08:52, 187.12s/it] [dedup_counting::ZIdFAGJrlCw::216] 297 frames, 296.4s video
+[dedup_counting::ZIdFAGJrlCw::216] done — 11 replies
+MMDuet2 OmniPro:  59%|█████▉    | 257/432 [17:13:55<10:45:26, 221.29s/it][dedup_counting::ZrIDTPkRa_c::219] 294 frames, 293.1s video
+[dedup_counting::ZrIDTPkRa_c::219] done — 15 replies
+MMDuet2 OmniPro:  60%|█████▉    | 258/432 [17:18:59<11:53:26, 246.02s/it][dedup_counting::ajGCDzqda7Y::221] 143 frames, 142.9s video
+[dedup_counting::ajGCDzqda7Y::221] done — 15 replies
+MMDuet2 OmniPro:  60%|█████▉    | 259/432 [17:20:27<9:32:56, 198.71s/it] [dedup_counting::aZQ8bPyEvQ8::225] 125 frames, 124.9s video
+[dedup_counting::aZQ8bPyEvQ8::225] done — 1 replies
+MMDuet2 OmniPro:  60%|██████    | 260/432 [17:21:26<7:29:26, 156.78s/it][dedup_counting::bXY6EQ9TtME::226] 167 frames, 166.7s video
+[dedup_counting::bXY6EQ9TtME::226] done — 9 replies
+MMDuet2 OmniPro:  60%|██████    | 261/432 [17:23:10<6:41:25, 140.85s/it][dedup_counting::bc0QbyygT3w::227] 198 frames, 197.8s video
+[dedup_counting::bc0QbyygT3w::227] done — 10 replies
+MMDuet2 OmniPro:  61%|██████    | 262/432 [17:25:24<6:33:53, 139.02s/it][dedup_counting::crEbc_uPl5g::230] 144 frames, 143.7s video
+[dedup_counting::crEbc_uPl5g::230] done — 4 replies
+MMDuet2 OmniPro:  61%|██████    | 263/432 [17:26:41<5:39:10, 120.42s/it][dedup_counting::cyQJml1jA-4::233] 70 frames, 69.5s video
+[dedup_counting::cyQJml1jA-4::233] done — 0 replies
+MMDuet2 OmniPro:  61%|██████    | 264/432 [17:27:03<4:14:10, 90.78s/it] [dedup_counting::bze7n_7Ntkw::236] 225 frames, 225.0s video
+[dedup_counting::bze7n_7Ntkw::236] done — 6 replies
+MMDuet2 OmniPro:  61%|██████▏   | 265/432 [17:29:56<5:21:03, 115.35s/it][dedup_counting::k_JR4R_4BQM::242] 483 frames, 482.8s video
+[dedup_counting::k_JR4R_4BQM::242] done — 6 replies
+MMDuet2 OmniPro:  62%|██████▏   | 266/432 [17:44:26<15:45:38, 341.80s/it][dedup_counting::kvZUg1jyDJE::245] 147 frames, 146.6s video
+[dedup_counting::kvZUg1jyDJE::245] done — 4 replies
+MMDuet2 OmniPro:  62%|██████▏   | 267/432 [17:45:46<12:03:54, 263.24s/it][dedup_counting::l5Z9F7SbvXg::246] 163 frames, 162.7s video
+[dedup_counting::l5Z9F7SbvXg::246] done — 6 replies
+MMDuet2 OmniPro:  62%|██████▏   | 268/432 [17:47:21<9:42:08, 212.98s/it] [dedup_counting::mcBCZnlRAIc::252] 66 frames, 65.8s video
+[dedup_counting::mcBCZnlRAIc::252] done — 3 replies
+MMDuet2 OmniPro:  62%|██████▏   | 269/432 [17:47:44<7:03:16, 155.81s/it][dedup_counting::mzsJXjmfmI8::253] 155 frames, 154.4s video
+[dedup_counting::mzsJXjmfmI8::253] done — 8 replies
+MMDuet2 OmniPro:  62%|██████▎   | 270/432 [17:49:13<6:06:55, 135.90s/it][dedup_counting::o0MMAUX2dCo::259] 63 frames, 62.4s video
+[dedup_counting::o0MMAUX2dCo::259] done — 2 replies
+MMDuet2 OmniPro:  63%|██████▎   | 271/432 [17:49:33<4:31:01, 101.00s/it][dedup_counting::o-U5HwaUyCE::260] 58 frames, 57.6s video
+[dedup_counting::o-U5HwaUyCE::260] done — 3 replies
+MMDuet2 OmniPro:  63%|██████▎   | 272/432 [17:49:51<3:22:45, 76.03s/it] [dedup_counting::mDSFARouUS0::267] 261 frames, 260.3s video
+[dedup_counting::mDSFARouUS0::267] done — 52 replies
+MMDuet2 OmniPro:  63%|██████▎   | 273/432 [17:55:36<6:55:40, 156.86s/it][dedup_counting::qtdHKvr0xas::273] 107 frames, 107.0s video
+[dedup_counting::qtdHKvr0xas::273] done — 4 replies
+MMDuet2 OmniPro:  63%|██████▎   | 274/432 [17:56:24<5:27:22, 124.32s/it][dedup_counting::q__k5o5SgT8::275] 165 frames, 164.5s video
+[dedup_counting::q__k5o5SgT8::275] done — 6 replies
+MMDuet2 OmniPro:  64%|██████▎   | 275/432 [17:58:01<5:03:18, 115.91s/it][dedup_counting::rxRJh_6agME::276] 123 frames, 122.8s video
+[dedup_counting::rxRJh_6agME::276] done — 6 replies
+MMDuet2 OmniPro:  64%|██████▍   | 276/432 [17:58:59<4:16:38, 98.71s/it] [dedup_counting::ryDNCQtDocw::280] 138 frames, 137.9s video
+[dedup_counting::ryDNCQtDocw::280] done — 9 replies
+MMDuet2 OmniPro:  64%|██████▍   | 277/432 [18:00:09<3:52:27, 89.99s/it][dedup_counting::t6bFj5BysGA::281] 132 frames, 131.5s video
+[dedup_counting::t6bFj5BysGA::281] done — 1 replies
+MMDuet2 OmniPro:  64%|██████▍   | 278/432 [18:01:12<3:30:24, 81.98s/it][dedup_counting::uMWftJGDvGA::283] 168 frames, 167.1s video
+[dedup_counting::uMWftJGDvGA::283] done — 9 replies
+MMDuet2 OmniPro:  65%|██████▍   | 279/432 [18:02:53<3:43:11, 87.52s/it][dedup_counting::vEVEXNI-uAA::285] 190 frames, 190.0s video
+[dedup_counting::vEVEXNI-uAA::285] done — 5 replies
+MMDuet2 OmniPro:  65%|██████▍   | 280/432 [18:04:58<4:10:17, 98.80s/it][dedup_counting::xjElCXPNY48::292] 62 frames, 61.9s video
+[dedup_counting::xjElCXPNY48::292] done — 5 replies
+MMDuet2 OmniPro:  65%|██████▌   | 281/432 [18:05:18<3:09:38, 75.36s/it][dedup_counting::J881Moimbyc::299] 312 frames, 311.2s video
+[dedup_counting::J881Moimbyc::299] done — 6 replies
+MMDuet2 OmniPro:  65%|██████▌   | 282/432 [18:10:49<6:19:40, 151.87s/it][explicit_target_grounding::5cD4CAHexWs::25] 174 frames, 174.0s video
+[explicit_target_grounding::5cD4CAHexWs::25] done — 28 replies
+MMDuet2 OmniPro:  66%|██████▌   | 283/432 [18:13:02<6:03:24, 146.34s/it][explicit_target_grounding::PnU1PlgQaUY::75] 203 frames, 202.4s video
+[explicit_target_grounding::PnU1PlgQaUY::75] done — 0 replies
+MMDuet2 OmniPro:  66%|██████▌   | 284/432 [18:15:18<5:53:25, 143.28s/it][explicit_target_grounding::DLBbSgu_JdM::130] 185 frames, 184.8s video
+[explicit_target_grounding::DLBbSgu_JdM::130] done — 3 replies
+MMDuet2 OmniPro:  66%|██████▌   | 285/432 [18:17:16<5:32:04, 135.54s/it][explicit_target_grounding::PsFHyVssjAc::147] 197 frames, 197.0s video
+[explicit_target_grounding::PsFHyVssjAc::147] done — 9 replies
+MMDuet2 OmniPro:  66%|██████▌   | 286/432 [18:19:33<5:31:16, 136.14s/it][explicit_target_grounding::Y4dQgIbjTWI::166] 116 frames, 115.5s video
+[explicit_target_grounding::Y4dQgIbjTWI::166] done — 5 replies
+MMDuet2 OmniPro:  66%|██████▋   | 287/432 [18:20:29<4:30:23, 111.89s/it][explicit_target_grounding::YJV5yWfrB98::167] 153 frames, 152.9s video
+[explicit_target_grounding::YJV5yWfrB98::167] done — 4 replies
+MMDuet2 OmniPro:  67%|██████▋   | 288/432 [18:21:54<4:09:07, 103.80s/it][event_narration::1dikAGqQ3hs::17] 187 frames, 186.7s video
+[event_narration::1dikAGqQ3hs::17] done — 44 replies
+MMDuet2 OmniPro:  67%|██████▋   | 289/432 [18:29:11<8:05:46, 203.82s/it][event_narration::ln-yFLZ5wcc::33] 109 frames, 108.1s video
+[event_narration::ln-yFLZ5wcc::33] done — 31 replies
+MMDuet2 OmniPro:  67%|██████▋   | 290/432 [18:30:49<6:47:23, 172.14s/it][event_narration::qH7vE-Jpiz0::91] 164 frames, 163.9s video
+[event_narration::qH7vE-Jpiz0::91] done — 37 replies
+MMDuet2 OmniPro:  67%|██████▋   | 291/432 [18:35:14<7:49:56, 199.97s/it][event_narration::SXhqgUW3mjw::97] 164 frames, 163.7s video
+[event_narration::SXhqgUW3mjw::97] done — 62 replies
+MMDuet2 OmniPro:  68%|██████▊   | 292/432 [18:38:59<8:04:13, 207.52s/it][event_narration::JormXeC21gM::284] 118 frames, 117.3s video
+[event_narration::JormXeC21gM::284] done — 21 replies
+MMDuet2 OmniPro:  68%|██████▊   | 293/432 [18:40:15<6:29:21, 168.07s/it][sequential_step_instruction::xbkZdF8eE00::8] 159 frames, 158.7s video
+[sequential_step_instruction::xbkZdF8eE00::8] done — 44 replies
+MMDuet2 OmniPro:  68%|██████▊   | 294/432 [18:42:22<5:57:46, 155.56s/it][sequential_step_instruction::xMcItzWk8l4::17] 100 frames, 99.6s video
+[sequential_step_instruction::xMcItzWk8l4::17] done — 1 replies
+MMDuet2 OmniPro:  68%|██████▊   | 295/432 [18:43:01<4:35:33, 120.68s/it][sequential_step_instruction::esdkKXbbT-w::20] 72 frames, 71.7s video
+[sequential_step_instruction::esdkKXbbT-w::20] done — 8 replies
+MMDuet2 OmniPro:  69%|██████▊   | 296/432 [18:43:30<3:31:20, 93.24s/it] [sequential_step_instruction::gomtrmZwJYk::24] 105 frames, 104.4s video
+[sequential_step_instruction::gomtrmZwJYk::24] done — 32 replies
+MMDuet2 OmniPro:  69%|██████▉   | 297/432 [18:44:56<3:25:09, 91.18s/it][sequential_step_instruction::pBeGMZGlfdU::29] 76 frames, 75.1s video
+[sequential_step_instruction::pBeGMZGlfdU::29] done — 23 replies
+MMDuet2 OmniPro:  69%|██████▉   | 298/432 [18:45:46<2:56:00, 78.81s/it][sequential_step_instruction::TD9mUSkKQNY::32] 179 frames, 178.5s video
+[sequential_step_instruction::TD9mUSkKQNY::32] done — 37 replies
+MMDuet2 OmniPro:  69%|██████▉   | 299/432 [18:47:59<3:30:27, 94.94s/it][sequential_step_instruction::wRuu1XJ4NcE::33] 60 frames, 60.0s video
+[sequential_step_instruction::wRuu1XJ4NcE::33] done — 18 replies
+MMDuet2 OmniPro:  69%|██████▉   | 300/432 [18:48:32<2:48:18, 76.50s/it][sequential_step_instruction::PoScwTkFe3o::34] 189 frames, 188.2s video
+[sequential_step_instruction::PoScwTkFe3o::34] done — 20 replies
+MMDuet2 OmniPro:  70%|██████▉   | 301/432 [18:51:06<3:37:36, 99.67s/it][sequential_step_instruction::zrZCkdWzqB8::37] 165 frames, 164.1s video
+[sequential_step_instruction::zrZCkdWzqB8::37] done — 80 replies
+MMDuet2 OmniPro:  70%|██████▉   | 302/432 [18:55:45<5:32:31, 153.47s/it][sequential_step_instruction::rm5fJ7ncqG4::45] 60 frames, 60.0s video
+[sequential_step_instruction::rm5fJ7ncqG4::45] done — 20 replies
+MMDuet2 OmniPro:  70%|███████   | 303/432 [18:56:25<4:16:53, 119.48s/it][sequential_step_instruction::LT-FXNMpk0M::47] 163 frames, 162.8s video
+[sequential_step_instruction::LT-FXNMpk0M::47] done — 61 replies
+MMDuet2 OmniPro:  70%|███████   | 304/432 [18:59:50<5:09:06, 144.89s/it][sequential_step_instruction::6tM6nrYaiHc::63] 61 frames, 60.2s video
+[sequential_step_instruction::6tM6nrYaiHc::63] done — 14 replies
+MMDuet2 OmniPro:  71%|███████   | 305/432 [19:00:15<3:50:42, 109.00s/it][sequential_step_instruction::IEPDnSoz6IM::64] 157 frames, 157.0s video
+[sequential_step_instruction::IEPDnSoz6IM::64] done — 7 replies
+MMDuet2 OmniPro:  71%|███████   | 306/432 [19:01:46<3:37:41, 103.67s/it][sequential_step_instruction::ntsNAlgZ0d4::68] 146 frames, 145.0s video
+[sequential_step_instruction::ntsNAlgZ0d4::68] done — 57 replies
+MMDuet2 OmniPro:  71%|███████   | 307/432 [19:06:33<5:30:24, 158.60s/it][sequential_step_instruction::SQArinQHa2o::70] 105 frames, 104.8s video
+[sequential_step_instruction::SQArinQHa2o::70] done — 15 replies
+MMDuet2 OmniPro:  71%|███████▏  | 308/432 [19:07:20<4:18:39, 125.16s/it][sequential_step_instruction::zs-6oNbVbdY::77] 30 frames, 29.7s video
+[sequential_step_instruction::zs-6oNbVbdY::77] done — 4 replies
+MMDuet2 OmniPro:  72%|███████▏  | 309/432 [19:07:28<3:04:50, 90.17s/it] [sequential_step_instruction::ILFgrxOek7I::78] 57 frames, 56.9s video
+[sequential_step_instruction::ILFgrxOek7I::78] done — 14 replies
+MMDuet2 OmniPro:  72%|███████▏  | 310/432 [19:07:57<2:25:27, 71.54s/it][sequential_step_instruction::Yq4zEFiD2rY::80] 159 frames, 158.5s video
+[sequential_step_instruction::Yq4zEFiD2rY::80] done — 21 replies
+MMDuet2 OmniPro:  72%|███████▏  | 311/432 [19:09:43<2:45:42, 82.17s/it][sequential_step_instruction::mMxQcSe1WG4::82] 235 frames, 235.0s video
+[sequential_step_instruction::mMxQcSe1WG4::82] done — 91 replies
+MMDuet2 OmniPro:  72%|███████▏  | 312/432 [19:15:05<5:08:10, 154.09s/it][sequential_step_instruction::MNmhXI9ZbC0::103] 113 frames, 112.6s video
+[sequential_step_instruction::MNmhXI9ZbC0::103] done — 24 replies
+MMDuet2 OmniPro:  72%|███████▏  | 313/432 [19:16:12<4:13:41, 127.92s/it][sequential_step_instruction::xQqladBKjFU::104] 221 frames, 220.3s video
+[sequential_step_instruction::xQqladBKjFU::104] done — 50 replies
+MMDuet2 OmniPro:  73%|███████▎  | 314/432 [19:20:22<5:23:36, 164.55s/it][sequential_step_instruction::PAKVTjjEmZw::107] 142 frames, 141.4s video
+[sequential_step_instruction::PAKVTjjEmZw::107] done — 2 replies
+MMDuet2 OmniPro:  73%|███████▎  | 315/432 [19:21:34<4:26:41, 136.76s/it][sequential_step_instruction::nc-I9wz10dI::114] 140 frames, 139.1s video
+[sequential_step_instruction::nc-I9wz10dI::114] done — 28 replies
+MMDuet2 OmniPro:  73%|███████▎  | 316/432 [19:23:18<4:05:19, 126.89s/it][sequential_step_instruction::wDLKxXpF_sE::118] 190 frames, 189.4s video
+[sequential_step_instruction::wDLKxXpF_sE::118] done — 17 replies
+MMDuet2 OmniPro:  73%|███████▎  | 317/432 [19:25:35<4:08:55, 129.87s/it][sequential_step_instruction::k5IvMup6ak0::122] 104 frames, 103.5s video
+[sequential_step_instruction::k5IvMup6ak0::122] done — 26 replies
+MMDuet2 OmniPro:  74%|███████▎  | 318/432 [19:26:48<3:34:23, 112.84s/it][sequential_step_instruction::0Col2kFTifE::123] 138 frames, 137.4s video
+[sequential_step_instruction::0Col2kFTifE::123] done — 41 replies
+MMDuet2 OmniPro:  74%|███████▍  | 319/432 [19:28:35<3:29:00, 110.98s/it][sequential_step_instruction::8V8mxWQ2S30::130] 83 frames, 82.7s video
+[sequential_step_instruction::8V8mxWQ2S30::130] done — 13 replies
+MMDuet2 OmniPro:  74%|███████▍  | 320/432 [19:29:12<2:46:06, 88.99s/it] [sequential_step_instruction::NnoaW6ngOrc::131] 54 frames, 53.4s video
+[sequential_step_instruction::NnoaW6ngOrc::131] done — 7 replies
+MMDuet2 OmniPro:  74%|███████▍  | 321/432 [19:29:28<2:04:11, 67.13s/it][sequential_step_instruction::sV9c-iFmMms::133] 146 frames, 145.0s video
+[sequential_step_instruction::sV9c-iFmMms::133] done — 12 replies
+MMDuet2 OmniPro:  75%|███████▍  | 322/432 [19:30:47<2:09:20, 70.55s/it][sequential_step_instruction::kdaeGbhYimU::144] 139 frames, 138.8s video
+[sequential_step_instruction::kdaeGbhYimU::144] done — 4 replies
+MMDuet2 OmniPro:  75%|███████▍  | 323/432 [19:31:58<2:08:28, 70.72s/it][sequential_step_instruction::2LoOiukDDtU::146] 139 frames, 138.1s video
+[sequential_step_instruction::2LoOiukDDtU::146] done — 34 replies
+MMDuet2 OmniPro:  75%|███████▌  | 324/432 [19:33:38<2:23:04, 79.49s/it][sequential_step_instruction::MxhxhMS5QiA::150] 94 frames, 93.7s video
+[sequential_step_instruction::MxhxhMS5QiA::150] done — 20 replies
+MMDuet2 OmniPro:  75%|███████▌  | 325/432 [19:34:33<2:08:32, 72.08s/it][sequential_step_instruction::3B_2vFin_PY::155] 59 frames, 58.6s video
+[sequential_step_instruction::3B_2vFin_PY::155] done — 23 replies
+MMDuet2 OmniPro:  75%|███████▌  | 326/432 [19:35:11<1:49:10, 61.80s/it][sequential_step_instruction::FSKSkZzpqR8::158] 143 frames, 142.3s video
+[sequential_step_instruction::FSKSkZzpqR8::158] done — 44 replies
+MMDuet2 OmniPro:  76%|███████▌  | 327/432 [19:37:16<2:21:38, 80.94s/it][sequential_step_instruction::oIkyrPnZpPg::161] 91 frames, 90.1s video
+[sequential_step_instruction::oIkyrPnZpPg::161] done — 8 replies
+MMDuet2 OmniPro:  76%|███████▌  | 328/432 [19:37:54<1:58:05, 68.13s/it][sequential_step_instruction::nsylTobS19g::162] 11 frames, 10.1s video
+[sequential_step_instruction::nsylTobS19g::162] done — 0 replies
+MMDuet2 OmniPro:  76%|███████▌  | 329/432 [19:37:56<1:22:46, 48.22s/it][sequential_step_instruction::M6SRLtc_OJ0::164] 153 frames, 152.6s video
+[sequential_step_instruction::M6SRLtc_OJ0::164] done — 37 replies
+MMDuet2 OmniPro:  76%|███████▋  | 330/432 [19:42:11<3:07:18, 110.18s/it][sequential_step_instruction::lyS0DjDN9Qw::165] 60 frames, 60.0s video
+[sequential_step_instruction::lyS0DjDN9Qw::165] done — 18 replies
+MMDuet2 OmniPro:  77%|███████▋  | 331/432 [19:42:46<2:27:22, 87.55s/it] [sequential_step_instruction::sJRiAsVpnZM::172] 84 frames, 83.7s video
+[sequential_step_instruction::sJRiAsVpnZM::172] done — 7 replies
+MMDuet2 OmniPro:  77%|███████▋  | 332/432 [19:43:19<1:59:01, 71.42s/it][sequential_step_instruction::2l6O-U8I0Co::178] 107 frames, 106.2s video
+[sequential_step_instruction::2l6O-U8I0Co::178] done — 37 replies
+MMDuet2 OmniPro:  77%|███████▋  | 333/432 [19:44:40<2:02:05, 74.00s/it][sequential_step_instruction::kjAUQLMG0UA::183] 82 frames, 81.5s video
+[sequential_step_instruction::kjAUQLMG0UA::183] done — 9 replies
+MMDuet2 OmniPro:  77%|███████▋  | 334/432 [19:45:14<1:41:24, 62.09s/it][sequential_step_instruction::MR_olQaxdoQ::192] 220 frames, 219.3s video
+[sequential_step_instruction::MR_olQaxdoQ::192] done — 27 replies
+MMDuet2 OmniPro:  78%|███████▊  | 335/432 [19:48:15<2:38:06, 97.80s/it][sequential_step_instruction::zOf8kNZWGGo::199] 106 frames, 105.1s video
+[sequential_step_instruction::zOf8kNZWGGo::199] done — 14 replies
+MMDuet2 OmniPro:  78%|███████▊  | 336/432 [19:49:06<2:14:15, 83.91s/it][sequential_step_instruction::NjKCkEx0oIE::200] 101 frames, 101.0s video
+[sequential_step_instruction::NjKCkEx0oIE::200] done — 23 replies
+MMDuet2 OmniPro:  78%|███████▊  | 337/432 [19:50:08<2:02:07, 77.13s/it][sequential_step_instruction::vBcZzLzaNY0::215] 144 frames, 143.7s video
+[sequential_step_instruction::vBcZzLzaNY0::215] done — 46 replies
+MMDuet2 OmniPro:  78%|███████▊  | 338/432 [19:52:16<2:24:47, 92.42s/it][sequential_step_instruction::2uAnPRsqsjk::222] 159 frames, 158.7s video
+[sequential_step_instruction::2uAnPRsqsjk::222] done — 60 replies
+MMDuet2 OmniPro:  78%|███████▊  | 339/432 [19:55:39<3:14:37, 125.57s/it][sequential_step_instruction::_s23EIMBWR8::224] 116 frames, 115.6s video
+[sequential_step_instruction::_s23EIMBWR8::224] done — 41 replies
+MMDuet2 OmniPro:  79%|███████▊  | 340/432 [19:57:20<3:01:11, 118.17s/it][sequential_step_instruction::gUEfhzDKdys::228] 67 frames, 66.5s video
+[sequential_step_instruction::gUEfhzDKdys::228] done — 20 replies
+MMDuet2 OmniPro:  79%|███████▉  | 341/432 [19:58:05<2:26:01, 96.28s/it] [sequential_step_instruction::5sO2W10iiW0::231] 106 frames, 105.1s video
+[sequential_step_instruction::5sO2W10iiW0::231] done — 30 replies
+MMDuet2 OmniPro:  79%|███████▉  | 342/432 [19:59:27<2:17:57, 91.97s/it][sequential_step_instruction::U7D7ImpBbaE::233] 86 frames, 85.5s video
+[sequential_step_instruction::U7D7ImpBbaE::233] done — 0 replies
+MMDuet2 OmniPro:  79%|███████▉  | 343/432 [19:59:57<1:48:57, 73.45s/it][sequential_step_instruction::iMb1viedwU0::238] 96 frames, 95.3s video
+[sequential_step_instruction::iMb1viedwU0::238] done — 26 replies
+MMDuet2 OmniPro:  80%|███████▉  | 344/432 [20:01:48<2:04:18, 84.75s/it][sequential_step_instruction::LymfuNFJ-jM::241] 310 frames, 309.7s video
+[sequential_step_instruction::LymfuNFJ-jM::241] done — 20 replies
+MMDuet2 OmniPro:  80%|███████▉  | 345/432 [20:07:14<3:47:34, 156.95s/it][sequential_step_instruction::edFykMFYDKg::247] 45 frames, 44.2s video
+[sequential_step_instruction::edFykMFYDKg::247] done — 16 replies
+MMDuet2 OmniPro:  80%|████████  | 346/432 [20:07:44<2:50:41, 119.09s/it][sequential_step_instruction::VOkR-IKaOic::252] 185 frames, 184.1s video
+[sequential_step_instruction::VOkR-IKaOic::252] done — 35 replies
+MMDuet2 OmniPro:  80%|████████  | 347/432 [20:10:28<3:07:38, 132.45s/it][sequential_step_instruction::dkDUFlHIh64::258] 24 frames, 23.7s video
+[sequential_step_instruction::dkDUFlHIh64::258] done — 4 replies
+MMDuet2 OmniPro:  81%|████████  | 348/432 [20:10:35<2:12:58, 94.98s/it] [sequential_step_instruction::c3amn_LhgQE::262] 230 frames, 229.7s video
+[sequential_step_instruction::c3amn_LhgQE::262] done — 66 replies
+MMDuet2 OmniPro:  81%|████████  | 349/432 [20:15:21<3:30:22, 152.08s/it][sequential_step_instruction::sTo2GW_StTg::264] 49 frames, 48.6s video
+[sequential_step_instruction::sTo2GW_StTg::264] done — 15 replies
+MMDuet2 OmniPro:  81%|████████  | 350/432 [20:15:45<2:35:16, 113.62s/it][sequential_step_instruction::mBTZryQRfMU::270] 69 frames, 68.9s video
+[sequential_step_instruction::mBTZryQRfMU::270] done — 22 replies
+MMDuet2 OmniPro:  81%|████████▏ | 351/432 [20:16:24<2:03:14, 91.29s/it] [sequential_step_instruction::-4ips6KXoBE::271] 91 frames, 90.8s video
+[sequential_step_instruction::-4ips6KXoBE::271] done — 15 replies
+MMDuet2 OmniPro:  81%|████████▏ | 352/432 [20:17:10<1:43:35, 77.69s/it][sequential_step_instruction::HVztSvphYHk::273] 106 frames, 105.0s video
+[sequential_step_instruction::HVztSvphYHk::273] done — 13 replies
+MMDuet2 OmniPro:  82%|████████▏ | 353/432 [20:18:01<1:31:52, 69.78s/it][sequential_step_instruction::X_HOEPXVcCc::278] 26 frames, 25.9s video
+[sequential_step_instruction::X_HOEPXVcCc::278] done — 0 replies
+MMDuet2 OmniPro:  82%|████████▏ | 354/432 [20:18:06<1:05:32, 50.42s/it][sequential_step_instruction::Lg1AQq8UC9Y::284] 149 frames, 148.9s video
+[sequential_step_instruction::Lg1AQq8UC9Y::284] done — 35 replies
+MMDuet2 OmniPro:  82%|████████▏ | 355/432 [20:19:55<1:26:55, 67.73s/it][sequential_step_instruction::bdA49NL0vpQ::291] 112 frames, 111.9s video
+[sequential_step_instruction::bdA49NL0vpQ::291] done — 32 replies
+MMDuet2 OmniPro:  82%|████████▏ | 356/432 [20:21:09<1:28:31, 69.89s/it][sequential_step_instruction::zczJAF7A7Wk::293] 47 frames, 46.0s video
+[sequential_step_instruction::zczJAF7A7Wk::293] done — 12 replies
+MMDuet2 OmniPro:  83%|████████▎ | 357/432 [20:21:32<1:09:45, 55.81s/it][sequential_step_instruction::LOmXawlL5ds::295] 37 frames, 36.7s video
+[sequential_step_instruction::LOmXawlL5ds::295] done — 14 replies
+MMDuet2 OmniPro:  83%|████████▎ | 358/432 [20:21:51<55:08, 44.72s/it]  [sequential_step_instruction::g8etIwpQKVk::296] 28 frames, 27.7s video
+[sequential_step_instruction::g8etIwpQKVk::296] done — 4 replies
+MMDuet2 OmniPro:  83%|████████▎ | 359/432 [20:21:59<41:02, 33.74s/it][cumulative_counting::0JTW1IMJ9d0::0] 93 frames, 92.1s video
+[cumulative_counting::0JTW1IMJ9d0::0] done — 0 replies
+MMDuet2 OmniPro:  83%|████████▎ | 360/432 [20:22:34<40:49, 34.03s/it][cumulative_counting::-l9fxSCGJ4M::2] 156 frames, 155.7s video
+[cumulative_counting::-l9fxSCGJ4M::2] done — 2 replies
+MMDuet2 OmniPro:  84%|████████▎ | 361/432 [20:24:00<58:49, 49.71s/it][cumulative_counting::-ZvLZrWsFAc::3] 96 frames, 95.8s video
+[cumulative_counting::-ZvLZrWsFAc::3] done — 2 replies
+MMDuet2 OmniPro:  84%|████████▍ | 362/432 [20:24:37<53:31, 45.88s/it][cumulative_counting::02zNKcnf4OI::5] 65 frames, 64.3s video
+[cumulative_counting::02zNKcnf4OI::5] done — 1 replies
+MMDuet2 OmniPro:  84%|████████▍ | 363/432 [20:24:57<43:38, 37.95s/it][cumulative_counting::10fOVZIj5zg::7] 56 frames, 55.8s video
+[cumulative_counting::10fOVZIj5zg::7] done — 6 replies
+MMDuet2 OmniPro:  84%|████████▍ | 364/432 [20:25:17<37:00, 32.65s/it][cumulative_counting::14H72gjQBZY::12] 257 frames, 256.1s video
+[cumulative_counting::14H72gjQBZY::12] done — 18 replies
+MMDuet2 OmniPro:  84%|████████▍ | 365/432 [20:29:00<1:40:21, 89.88s/it][cumulative_counting::1Gf2W3eYP28::19] 137 frames, 136.9s video
+[cumulative_counting::1Gf2W3eYP28::19] done — 2 replies
+MMDuet2 OmniPro:  85%|████████▍ | 366/432 [20:30:09<1:31:43, 83.38s/it][cumulative_counting::2BByygOLXNM::27] 288 frames, 287.2s video
+[cumulative_counting::2BByygOLXNM::27] done — 3 replies
+MMDuet2 OmniPro:  85%|████████▍ | 367/432 [20:34:42<2:32:07, 140.42s/it][cumulative_counting::2_gFqUYH--0::28] 107 frames, 106.5s video
+[cumulative_counting::2_gFqUYH--0::28] done — 7 replies
+MMDuet2 OmniPro:  85%|████████▌ | 368/432 [20:35:28<1:59:25, 111.96s/it][cumulative_counting::2lbUSmQNFls::30] 73 frames, 72.1s video
+[cumulative_counting::2lbUSmQNFls::30] done — 1 replies
+MMDuet2 OmniPro:  85%|████████▌ | 369/432 [20:35:51<1:29:34, 85.31s/it] [cumulative_counting::3ga91VB8myI::33] 39 frames, 38.7s video
+[cumulative_counting::3ga91VB8myI::33] done — 5 replies
+MMDuet2 OmniPro:  86%|████████▌ | 370/432 [20:36:03<1:05:36, 63.49s/it][cumulative_counting::3ezGUOPrk9c::34] 114 frames, 113.9s video
+[cumulative_counting::3ezGUOPrk9c::34] done — 4 replies
+MMDuet2 OmniPro:  86%|████████▌ | 371/432 [20:36:53<1:00:13, 59.24s/it][cumulative_counting::3rK_AhbGmHs::38] 242 frames, 241.5s video
+[cumulative_counting::3rK_AhbGmHs::38] done — 34 replies
+MMDuet2 OmniPro:  86%|████████▌ | 372/432 [20:44:03<2:50:23, 170.39s/it][cumulative_counting::40by4TniPds::39] 208 frames, 208.0s video
+[cumulative_counting::40by4TniPds::39] done — 5 replies
+MMDuet2 OmniPro:  86%|████████▋ | 373/432 [20:46:31<2:40:57, 163.69s/it][cumulative_counting::3MI7OZ-BlgE::40] 134 frames, 133.8s video
+[cumulative_counting::3MI7OZ-BlgE::40] done — 1 replies
+MMDuet2 OmniPro:  87%|████████▋ | 374/432 [20:47:37<2:09:53, 134.38s/it][cumulative_counting::58oXInI52OE::42] 107 frames, 106.6s video
+[cumulative_counting::58oXInI52OE::42] done — 5 replies
+MMDuet2 OmniPro:  87%|████████▋ | 375/432 [20:48:21<1:42:00, 107.37s/it][cumulative_counting::4hpYqQRepp4::43] 243 frames, 242.6s video
+[cumulative_counting::4hpYqQRepp4::43] done — 9 replies
+MMDuet2 OmniPro:  87%|████████▋ | 376/432 [20:51:41<2:06:17, 135.31s/it][cumulative_counting::3voe8kCy7Gs::45] 528 frames, 527.9s video
+[cumulative_counting::3voe8kCy7Gs::45] done — 134 replies
+MMDuet2 OmniPro:  87%|████████▋ | 377/432 [21:14:01<7:35:15, 496.64s/it][cumulative_counting::6RGTgYM1mwk::46] 57 frames, 57.0s video
+[cumulative_counting::6RGTgYM1mwk::46] done — 3 replies
+MMDuet2 OmniPro:  88%|████████▊ | 378/432 [21:14:18<5:17:29, 352.77s/it][cumulative_counting::9dzOr4b5qFs::55] 60 frames, 60.0s video
+[cumulative_counting::9dzOr4b5qFs::55] done — 3 replies
+MMDuet2 OmniPro:  88%|████████▊ | 379/432 [21:14:37<3:43:08, 252.61s/it][cumulative_counting::8wi2N5opUVE::56] 209 frames, 208.3s video
+[cumulative_counting::8wi2N5opUVE::56] done — 3 replies
+MMDuet2 OmniPro:  88%|████████▊ | 380/432 [21:17:08<3:12:30, 222.13s/it][cumulative_counting::8wAybqBnYQk::57] 517 frames, 517.0s video
+[cumulative_counting::8wAybqBnYQk::57] done — 1 replies
+MMDuet2 OmniPro:  88%|████████▊ | 381/432 [21:33:30<6:22:39, 450.18s/it][cumulative_counting::A0l8fhxoWpY::58] 143 frames, 142.3s video
+[cumulative_counting::A0l8fhxoWpY::58] done — 0 replies
+MMDuet2 OmniPro:  88%|████████▊ | 382/432 [21:34:43<4:40:40, 336.81s/it][cumulative_counting::9PrAJGLXUuM::59] 493 frames, 492.2s video
+[cumulative_counting::9PrAJGLXUuM::59] done — 13 replies
+MMDuet2 OmniPro:  89%|████████▊ | 383/432 [21:49:36<6:51:21, 503.71s/it][cumulative_counting::9b793ImfzUM::63] 71 frames, 71.0s video
+[cumulative_counting::9b793ImfzUM::63] done — 3 replies
+MMDuet2 OmniPro:  89%|████████▉ | 384/432 [21:49:59<4:47:44, 359.69s/it][cumulative_counting::B9t_NybAytA::69] 526 frames, 525.4s video
+[cumulative_counting::B9t_NybAytA::69] done — 0 replies
+MMDuet2 OmniPro:  89%|████████▉ | 385/432 [22:07:12<7:19:52, 561.54s/it][cumulative_counting::BCKpVVtJexc::71] 355 frames, 354.5s video
+[cumulative_counting::BCKpVVtJexc::71] done — 3 replies
+MMDuet2 OmniPro:  89%|████████▉ | 386/432 [22:14:28<6:41:44, 524.02s/it][cumulative_counting::A2yg51yht0c::72] 184 frames, 183.6s video
+[cumulative_counting::A2yg51yht0c::72] done — 17 replies
+MMDuet2 OmniPro:  90%|████████▉ | 387/432 [22:17:08<5:10:54, 414.54s/it][cumulative_counting::CGqjKsJCDVw::73] 68 frames, 67.9s video
+[cumulative_counting::CGqjKsJCDVw::73] done — 2 replies
+MMDuet2 OmniPro:  90%|████████▉ | 388/432 [22:17:30<3:37:41, 296.85s/it][cumulative_counting::CO_BD_Xuf-U::77] 446 frames, 445.8s video
+[cumulative_counting::CO_BD_Xuf-U::77] done — 62 replies
+MMDuet2 OmniPro:  90%|█████████ | 389/432 [22:41:46<7:41:57, 644.60s/it][cumulative_counting::C3Wx2o4LZko::79] 58 frames, 57.5s video
+[cumulative_counting::C3Wx2o4LZko::79] done — 6 replies
+MMDuet2 OmniPro:  90%|█████████ | 390/432 [22:42:03<5:19:32, 456.49s/it][cumulative_counting::CQ4WI57FjFo::80] 94 frames, 94.0s video
+[cumulative_counting::CQ4WI57FjFo::80] done — 3 replies
+MMDuet2 OmniPro:  91%|█████████ | 391/432 [22:42:41<3:45:58, 330.69s/it][cumulative_counting::Dd13d5FL220::85] 56 frames, 56.0s video
+[cumulative_counting::Dd13d5FL220::85] done — 6 replies
+MMDuet2 OmniPro:  91%|█████████ | 392/432 [22:43:00<2:38:18, 237.46s/it][cumulative_counting::ErNL6TY1GfI::88] 154 frames, 153.4s video
+[cumulative_counting::ErNL6TY1GfI::88] done — 2 replies
+MMDuet2 OmniPro:  91%|█████████ | 393/432 [22:44:24<2:04:23, 191.38s/it][cumulative_counting::FbDpZtgONPg::91] 178 frames, 177.4s video
+[cumulative_counting::FbDpZtgONPg::91] done — 8 replies
+MMDuet2 OmniPro:  91%|█████████ | 394/432 [22:46:17<1:46:12, 167.70s/it][cumulative_counting::Fr0QhESRzH0::92] 174 frames, 173.1s video
+[cumulative_counting::Fr0QhESRzH0::92] done — 2 replies
+MMDuet2 OmniPro:  91%|█████████▏| 395/432 [22:48:01<1:31:43, 148.73s/it][cumulative_counting::GbU_T2XiFgA::100] 179 frames, 178.3s video
+[cumulative_counting::GbU_T2XiFgA::100] done — 6 replies
+MMDuet2 OmniPro:  92%|█████████▏| 396/432 [22:49:53<1:22:37, 137.70s/it][cumulative_counting::GjDTEjAHu_Y::101] 101 frames, 100.4s video
+[cumulative_counting::GjDTEjAHu_Y::101] done — 7 replies
+MMDuet2 OmniPro:  92%|█████████▏| 397/432 [22:50:42<1:04:47, 111.07s/it][cumulative_counting::HAFLLtAcRKY::103] 53 frames, 53.0s video
+[cumulative_counting::HAFLLtAcRKY::103] done — 10 replies
+MMDuet2 OmniPro:  92%|█████████▏| 398/432 [22:51:11<48:54, 86.30s/it]   [cumulative_counting::HcGa_j-YDmw::107] 256 frames, 255.8s video
+[cumulative_counting::HcGa_j-YDmw::107] done — 6 replies
+MMDuet2 OmniPro:  92%|█████████▏| 399/432 [22:54:49<1:09:18, 126.00s/it][cumulative_counting::HgVegvv1HPE::111] 212 frames, 211.3s video
+[cumulative_counting::HgVegvv1HPE::111] done — 4 replies
+MMDuet2 OmniPro:  93%|█████████▎| 400/432 [22:57:22<1:11:25, 133.93s/it][cumulative_counting::GvBRNnsucao::113] 163 frames, 163.0s video
+[cumulative_counting::GvBRNnsucao::113] done — 4 replies
+MMDuet2 OmniPro:  93%|█████████▎| 401/432 [22:58:56<1:03:02, 122.01s/it][cumulative_counting::IWquNO7pJ_Q::118] 268 frames, 267.5s video
+[cumulative_counting::IWquNO7pJ_Q::118] done — 8 replies
+MMDuet2 OmniPro:  93%|█████████▎| 402/432 [23:02:55<1:18:31, 157.05s/it][cumulative_counting::IquGEf1w-Us::119] 198 frames, 197.3s video
+[cumulative_counting::IquGEf1w-Us::119] done — 1 replies
+MMDuet2 OmniPro:  93%|█████████▎| 403/432 [23:05:07<1:12:21, 149.72s/it][cumulative_counting::MSfDVu3i9mE::139] 156 frames, 155.5s video
+[cumulative_counting::MSfDVu3i9mE::139] done — 8 replies
+MMDuet2 OmniPro:  94%|█████████▎| 404/432 [23:06:34<1:00:59, 130.69s/it][cumulative_counting::N4ukVxLJYS8::140] 71 frames, 70.7s video
+[cumulative_counting::N4ukVxLJYS8::140] done — 6 replies
+MMDuet2 OmniPro:  94%|█████████▍| 405/432 [23:07:00<44:43, 99.39s/it]   [cumulative_counting::MwFpY7wY9-k::143] 153 frames, 152.7s video
+[cumulative_counting::MwFpY7wY9-k::143] done — 6 replies
+MMDuet2 OmniPro:  94%|█████████▍| 406/432 [23:08:25<41:14, 95.17s/it][cumulative_counting::R-PiTIAHx10::153] 187 frames, 186.9s video
+[cumulative_counting::R-PiTIAHx10::153] done — 7 replies
+MMDuet2 OmniPro:  94%|█████████▍| 407/432 [23:10:30<43:22, 104.10s/it][cumulative_counting::RCwTPOjyNUM::154] 171 frames, 170.6s video
+[cumulative_counting::RCwTPOjyNUM::154] done — 0 replies
+MMDuet2 OmniPro:  94%|█████████▍| 408/432 [23:12:10<41:04, 102.70s/it][cumulative_counting::SxHRryEQwxQ::162] 227 frames, 226.4s video
+[cumulative_counting::SxHRryEQwxQ::162] done — 18 replies
+MMDuet2 OmniPro:  95%|█████████▍| 409/432 [23:15:35<51:12, 133.60s/it][cumulative_counting::Tu8o0UZYOos::167] 332 frames, 331.9s video
+[cumulative_counting::Tu8o0UZYOos::167] done — 29 replies
+MMDuet2 OmniPro:  95%|█████████▍| 410/432 [23:22:47<1:21:47, 223.05s/it][cumulative_counting::lHTNcPpLMao::183] 211 frames, 210.8s video
+[cumulative_counting::lHTNcPpLMao::183] done — 4 replies
+MMDuet2 OmniPro:  95%|█████████▌| 411/432 [23:25:17<1:10:22, 201.08s/it][cumulative_counting::mhZZUveK-uQ::185] 202 frames, 201.3s video
+[cumulative_counting::mhZZUveK-uQ::185] done — 1 replies
+MMDuet2 OmniPro:  95%|█████████▌| 412/432 [23:27:35<1:00:44, 182.23s/it][cumulative_counting::mKuvkN87Whk::187] 252 frames, 251.7s video
+[cumulative_counting::mKuvkN87Whk::187] done — 1 replies
+MMDuet2 OmniPro:  96%|█████████▌| 413/432 [23:31:04<1:00:13, 190.17s/it][cumulative_counting::mDSFARouUS0::193] 261 frames, 260.3s video
+[cumulative_counting::mDSFARouUS0::193] done — 7 replies
+MMDuet2 OmniPro:  96%|█████████▌| 414/432 [23:34:53<1:00:32, 201.79s/it][cumulative_counting::oBvw8UmeeHs::196] 138 frames, 137.4s video
+[cumulative_counting::oBvw8UmeeHs::196] done — 7 replies
+MMDuet2 OmniPro:  96%|█████████▌| 415/432 [23:36:04<46:05, 162.70s/it]  [cumulative_counting::r6BeiY06VuQ::206] 175 frames, 174.1s video
+[cumulative_counting::r6BeiY06VuQ::206] done — 7 replies
+MMDuet2 OmniPro:  96%|█████████▋| 416/432 [23:37:54<39:10, 146.91s/it][cumulative_counting::sN4ZJzJHFTw::211] 104 frames, 103.6s video
+[cumulative_counting::sN4ZJzJHFTw::211] done — 13 replies
+MMDuet2 OmniPro:  97%|█████████▋| 417/432 [23:38:47<29:40, 118.69s/it][cumulative_counting::uZp7faytVHk::216] 273 frames, 272.6s video
+[cumulative_counting::uZp7faytVHk::216] done — 3 replies
+MMDuet2 OmniPro:  97%|█████████▋| 418/432 [23:42:54<36:41, 157.24s/it][cumulative_counting::x08xZ_FT_mI::229] 271 frames, 271.0s video
+[cumulative_counting::x08xZ_FT_mI::229] done — 4 replies
+MMDuet2 OmniPro:  97%|█████████▋| 419/432 [23:46:59<39:44, 183.46s/it][cumulative_counting::_A8Ra5DXbUY::239] 119 frames, 118.3s video
+[cumulative_counting::_A8Ra5DXbUY::239] done — 1 replies
+MMDuet2 OmniPro:  97%|█████████▋| 420/432 [23:47:53<28:54, 144.54s/it][cumulative_counting::_py1WXVX4oc::240] 74 frames, 73.1s video
+[cumulative_counting::_py1WXVX4oc::240] done — 2 replies
+MMDuet2 OmniPro:  97%|█████████▋| 421/432 [23:48:18<19:55, 108.69s/it][cumulative_counting::aCE8ShZ-jUE::242] 60 frames, 60.0s video
+[cumulative_counting::aCE8ShZ-jUE::242] done — 1 replies
+MMDuet2 OmniPro:  98%|█████████▊| 422/432 [23:48:36<13:34, 81.44s/it] [cumulative_counting::_oCvq1llsxE::243] 221 frames, 221.0s video
+[cumulative_counting::_oCvq1llsxE::243] done — 2 replies
+MMDuet2 OmniPro:  98%|█████████▊| 423/432 [23:51:19<15:54, 106.08s/it][cumulative_counting::aFalMIkiz60::244] 104 frames, 103.7s video
+[cumulative_counting::aFalMIkiz60::244] done — 1 replies
+MMDuet2 OmniPro:  98%|█████████▊| 424/432 [23:52:02<11:37, 87.14s/it] [cumulative_counting::aEf3bR9cvHM::245] 164 frames, 164.0s video
+[cumulative_counting::aEf3bR9cvHM::245] done — 2 replies
+MMDuet2 OmniPro:  98%|█████████▊| 425/432 [23:53:37<10:26, 89.50s/it][cumulative_counting::ajGCDzqda7Y::246] 143 frames, 142.9s video
+[cumulative_counting::ajGCDzqda7Y::246] done — 5 replies
+MMDuet2 OmniPro:  99%|█████████▊| 426/432 [23:54:57<08:39, 86.63s/it][cumulative_counting::cVsCAgSOHJw::252] 353 frames, 352.1s video
+[cumulative_counting::cVsCAgSOHJw::252] done — 17 replies
+MMDuet2 OmniPro:  99%|█████████▉| 427/432 [24:02:36<16:31, 198.35s/it][cumulative_counting::hdXA4-tCwTA::261] 269 frames, 268.5s video
+[cumulative_counting::hdXA4-tCwTA::261] done — 1 replies
+MMDuet2 OmniPro:  99%|█████████▉| 428/432 [24:06:38<14:05, 211.32s/it][cumulative_counting::koEB4XPd9IM::270] 232 frames, 231.1s video
+[cumulative_counting::koEB4XPd9IM::270] done — 17 replies
+MMDuet2 OmniPro:  99%|█████████▉| 429/432 [24:10:00<10:25, 208.55s/it][cumulative_counting::XbpxMJ_Mz8M::283] 68 frames, 67.2s video
+[cumulative_counting::XbpxMJ_Mz8M::283] done — 7 replies
+MMDuet2 OmniPro: 100%|█████████▉| 430/432 [24:10:27<05:08, 154.12s/it][cumulative_counting::XlAanysVzzc::291] 191 frames, 190.6s video
+[cumulative_counting::XlAanysVzzc::291] done — 5 replies
+MMDuet2 OmniPro: 100%|█████████▉| 431/432 [24:12:36<02:26, 146.52s/it][cumulative_counting::YZYYVnB0lB8::292] 108 frames, 107.4s video
+[cumulative_counting::YZYYVnB0lB8::292] done — 7 replies
+MMDuet2 OmniPro: 100%|██████████| 432/432 [24:13:26<00:00, 117.56s/it]MMDuet2 OmniPro: 100%|██████████| 432/432 [24:13:26<00:00, 201.87s/it]
+Results saved to outputs/full_2/omnipro_visual-pred.jsonl

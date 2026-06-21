@@ -1,0 +1,56 @@
+========================================================================
+OmniPro firing metrics — ALL tasks (tol=3.0s, visual_only=True)
+========================================================================
+
+[instant_event_alert]  n=17
+  TIME    P=0.038  R=0.550  F1=0.072   (TP=11 FP=275 FN=9)
+  CONTENT acc=1.000   JOINT F1=0.072
+
+[static_object_counting]  n=35
+  TIME    P=0.135  R=0.800  F1=0.230   (TP=28 FP=180 FN=7)
+  CONTENT acc=0.000   JOINT F1=0.000
+
+[realtime_state_monitor]  n=98
+  TIME    P=0.089  R=0.509  F1=0.152   (TP=219 FP=2242 FN=211)
+  CONTENT acc=0.000   JOINT F1=0.000
+
+[semantic_condition_alert]  n=11
+  TIME    P=0.131  R=0.719  F1=0.222   (TP=23 FP=152 FN=9)
+  CONTENT acc=1.000   JOINT F1=0.222
+
+[dedup_counting]  n=121
+  TIME    P=0.235  R=0.697  F1=0.351   (TP=319 FP=1039 FN=139)
+  CONTENT acc=0.009   JOINT F1=0.003
+
+[explicit_target_grounding]  n=6
+  TIME    P=0.122  R=0.857  F1=0.214   (TP=6 FP=43 FN=1)
+  CONTENT acc=0.000   JOINT F1=0.000
+
+[event_narration]  n=5
+  TIME    P=0.092  R=0.783  F1=0.165   (TP=18 FP=177 FN=5)
+  CONTENT acc=0.000   JOINT F1=0.000
+
+[sequential_step_instruction]  n=66
+  TIME    P=0.181  R=0.765  F1=0.293   (TP=293 FP=1325 FN=90)
+  CONTENT acc=0.000   JOINT F1=0.000
+
+[cumulative_counting]  n=73
+  TIME    P=0.322  R=0.588  F1=0.416   (TP=197 FP=414 FN=138)
+  CONTENT acc=0.036   JOINT F1=0.015
+
+[overall]  n=432
+  TIME    P=0.160  R=0.647  F1=0.257   (TP=1114 FP=5847 FN=609)
+  CONTENT acc=0.057   JOINT F1=0.010
+
+------------------------------------------------------------------------
+OVER-FIRING (per task)
+  [instant_event_alert] FA/min=4.24  fire-time-err=1.00s  emits min/med/max=0/5/98
+  [static_object_counting] FA/min=1.33  fire-time-err=1.00s  emits min/med/max=0/2/85
+  [realtime_state_monitor] FA/min=6.74  fire-time-err=1.00s  emits min/med/max=0/10/222
+  [semantic_condition_alert] FA/min=6.87  fire-time-err=1.00s  emits min/med/max=0/13/59
+  [dedup_counting] FA/min=2.22  fire-time-err=2.00s  emits min/med/max=0/6/133
+  [explicit_target_grounding] FA/min=2.56  fire-time-err=1.00s  emits min/med/max=0/5/28
+  [event_narration] FA/min=14.18  fire-time-err=1.00s  emits min/med/max=21/37/62
+  [sequential_step_instruction] FA/min=10.12  fire-time-err=1.00s  emits min/med/max=0/20/91
+  [cumulative_counting] FA/min=1.33  fire-time-err=1.00s  emits min/med/max=0/4/134
+============================================================

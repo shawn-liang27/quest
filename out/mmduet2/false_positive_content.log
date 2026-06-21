@@ -1,0 +1,40 @@
+/usr/homes/sgl57/miniconda3/envs/mmduet/lib/python3.10/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Batches:   0%|          | 0/28 [00:00<?, ?it/s]Batches:   4%|▎         | 1/28 [00:02<01:04,  2.39s/it]Batches:   7%|▋         | 2/28 [00:04<00:53,  2.04s/it]Batches:  11%|█         | 3/28 [00:04<00:35,  1.43s/it]Batches:  14%|█▍        | 4/28 [00:05<00:26,  1.09s/it]Batches:  18%|█▊        | 5/28 [00:05<00:20,  1.14it/s]Batches:  21%|██▏       | 6/28 [00:06<00:16,  1.36it/s]Batches:  25%|██▌       | 7/28 [00:06<00:13,  1.55it/s]Batches:  29%|██▊       | 8/28 [00:07<00:11,  1.77it/s]Batches:  32%|███▏      | 9/28 [00:07<00:09,  1.97it/s]Batches:  36%|███▌      | 10/28 [00:08<00:08,  2.12it/s]Batches:  39%|███▉      | 11/28 [00:08<00:07,  2.31it/s]Batches:  43%|████▎     | 12/28 [00:08<00:06,  2.41it/s]Batches:  46%|████▋     | 13/28 [00:09<00:05,  2.56it/s]Batches:  50%|█████     | 14/28 [00:09<00:05,  2.69it/s]Batches:  54%|█████▎    | 15/28 [00:09<00:04,  2.81it/s]Batches:  57%|█████▋    | 16/28 [00:10<00:04,  2.91it/s]Batches:  61%|██████    | 17/28 [00:10<00:03,  2.97it/s]Batches:  64%|██████▍   | 18/28 [00:10<00:03,  3.19it/s]Batches:  68%|██████▊   | 19/28 [00:10<00:02,  3.40it/s]Batches:  71%|███████▏  | 20/28 [00:11<00:02,  3.56it/s]Batches:  75%|███████▌  | 21/28 [00:11<00:01,  3.75it/s]Batches:  79%|███████▊  | 22/28 [00:11<00:01,  3.90it/s]Batches:  82%|████████▏ | 23/28 [00:11<00:01,  4.04it/s]Batches:  86%|████████▌ | 24/28 [00:12<00:00,  4.42it/s]Batches:  89%|████████▉ | 25/28 [00:12<00:00,  4.85it/s]Batches:  93%|█████████▎| 26/28 [00:12<00:00,  5.30it/s]Batches:  96%|█████████▋| 27/28 [00:12<00:00,  5.86it/s]Batches: 100%|██████████| 28/28 [00:12<00:00,  2.24it/s]
+Batches:   0%|          | 0/28 [00:00<?, ?it/s]Batches:   4%|▎         | 1/28 [00:00<00:05,  4.67it/s]Batches:   7%|▋         | 2/28 [00:00<00:05,  4.63it/s]Batches:  11%|█         | 3/28 [00:00<00:04,  5.21it/s]Batches:  14%|█▍        | 4/28 [00:00<00:04,  5.59it/s]Batches:  18%|█▊        | 5/28 [00:00<00:03,  5.88it/s]Batches:  21%|██▏       | 6/28 [00:01<00:03,  6.07it/s]Batches:  25%|██▌       | 7/28 [00:01<00:03,  6.20it/s]Batches:  29%|██▊       | 8/28 [00:01<00:03,  6.42it/s]Batches:  32%|███▏      | 9/28 [00:01<00:02,  6.68it/s]Batches:  36%|███▌      | 10/28 [00:01<00:02,  6.89it/s]Batches:  39%|███▉      | 11/28 [00:01<00:02,  7.00it/s]Batches:  43%|████▎     | 12/28 [00:01<00:02,  7.22it/s]Batches:  46%|████▋     | 13/28 [00:02<00:02,  7.46it/s]Batches:  50%|█████     | 14/28 [00:02<00:01,  7.70it/s]Batches:  54%|█████▎    | 15/28 [00:02<00:01,  8.23it/s]Batches:  61%|██████    | 17/28 [00:02<00:01,  9.08it/s]Batches:  68%|██████▊   | 19/28 [00:02<00:00,  9.54it/s]Batches:  75%|███████▌  | 21/28 [00:02<00:00,  9.76it/s]Batches:  82%|████████▏ | 23/28 [00:03<00:00, 10.06it/s]Batches:  86%|████████▌ | 24/28 [00:03<00:00, 10.03it/s]Batches:  93%|█████████▎| 26/28 [00:03<00:00, 10.52it/s]Batches: 100%|██████████| 28/28 [00:03<00:00, 11.94it/s]Batches: 100%|██████████| 28/28 [00:03<00:00,  8.20it/s]
+Batches:   0%|          | 0/28 [00:00<?, ?it/s]Batches:   4%|▎         | 1/28 [00:00<00:04,  5.89it/s]Batches:   7%|▋         | 2/28 [00:00<00:03,  6.56it/s]Batches:  11%|█         | 3/28 [00:00<00:03,  6.52it/s]Batches:  14%|█▍        | 4/28 [00:00<00:03,  6.51it/s]Batches:  18%|█▊        | 5/28 [00:00<00:03,  6.58it/s]Batches:  21%|██▏       | 6/28 [00:00<00:03,  6.69it/s]Batches:  25%|██▌       | 7/28 [00:01<00:03,  6.88it/s]Batches:  29%|██▊       | 8/28 [00:01<00:02,  6.82it/s]Batches:  32%|███▏      | 9/28 [00:01<00:02,  6.79it/s]Batches:  36%|███▌      | 10/28 [00:01<00:02,  6.77it/s]Batches:  39%|███▉      | 11/28 [00:01<00:02,  6.69it/s]Batches:  43%|████▎     | 12/28 [00:01<00:02,  6.86it/s]Batches:  46%|████▋     | 13/28 [00:01<00:02,  7.08it/s]Batches:  50%|█████     | 14/28 [00:02<00:01,  7.04it/s]Batches:  54%|█████▎    | 15/28 [00:02<00:01,  7.04it/s]Batches:  57%|█████▋    | 16/28 [00:02<00:01,  7.04it/s]Batches:  61%|██████    | 17/28 [00:02<00:01,  7.15it/s]Batches:  64%|██████▍   | 18/28 [00:02<00:01,  7.22it/s]Batches:  68%|██████▊   | 19/28 [00:02<00:01,  7.24it/s]Batches:  71%|███████▏  | 20/28 [00:02<00:01,  7.86it/s]Batches:  75%|███████▌  | 21/28 [00:02<00:00,  8.26it/s]Batches:  79%|███████▊  | 22/28 [00:03<00:00,  8.67it/s]Batches:  82%|████████▏ | 23/28 [00:03<00:00,  8.49it/s]Batches:  86%|████████▌ | 24/28 [00:03<00:00,  8.17it/s]Batches:  93%|█████████▎| 26/28 [00:03<00:00,  9.16it/s]Batches: 100%|██████████| 28/28 [00:03<00:00, 10.81it/s]Batches: 100%|██████████| 28/28 [00:03<00:00,  7.69it/s]
+======================================================================
+FALSE-ALARM CONTENT (semantic, encoder=sentence-transformers/all-mpnet-base-v2)
+tol=3.0s near=10.0s redundant_sim>=0.5
+======================================================================
+TP fires: 1820   FP fires: 5141
+
+  NOVEL (far from any GT)                        3436 (66.8%)
+  NEAR-MISS (near, different meaning)            1135 (22.1%)
+  REDUNDANT (near + semantically restates GT)     570 (11.1%)
+
+--- query relevance (cos of fire text vs query) ---
+  TP fires : median=0.436  mean=0.425
+  FP fires : median=0.329  mean=0.341
+  GT-response match (TP): median=0.461
+
+  fraction of FP fires LESS query-relevant than the median TP: 67.3%
+  Read:
+   - FP query-relevance ~ TP -> firing does NOT gate on the query
+        (novel fires look as on-topic as correct ones = indiscriminate)
+   - FP query-relevance << TP -> novel fires are off-topic; model has SOME
+        query signal it fails to threshold (decision/representation gap)
+
+--- per-task NOVEL share ---
+  instant_event_alert          n=  266  novel=86%
+  static_object_counting       n=  160  novel=82%
+  realtime_state_monitor       n= 2027  novel=72%
+  semantic_condition_alert     n=  132  novel=58%
+  dedup_counting               n=  975  novel=84%
+  explicit_target_grounding    n=   39  novel=82%
+  event_narration              n=  148  novel=51%
+  sequential_step_instruction  n= 1039  novel=33%
+  cumulative_counting          n=  355  novel=75%
+
+  wrote 432 samples (with sim_resp, sim_query) -> out/mmduet2/fp_samples.jsonl
+======================================================================
