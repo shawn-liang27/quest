@@ -123,8 +123,8 @@ def summarize(name, vals):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--pred_file", required=True)
-    ap.add_argument("--gt_file", required=True)
-    ap.add_argument("--video_dir", required=True)
+    ap.add_argument("--gt_file", default="/mnt/data0/sgl57/data/omnipro/metadata.jsonl")
+    ap.add_argument("--video_dir", default="/mnt/data0/sgl57/data/omnipro/raw_videos")
     ap.add_argument("--tolerance", type=float, default=3.0)
     ap.add_argument("--max_videos", type=int, default=60,
                     help="cap videos processed (frame reads are slow)")

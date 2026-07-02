@@ -1,0 +1,39 @@
+========================================================================
+FALSE-ALARM CONTENT (encoder=sentence-transformers/all-mpnet-base-v2)
+tol=3.0s near=10.0s gt_match>=0.5 repeat>=0.85
+========================================================================
+TP fires: 2280   FP fires: 13729
+(calibration: TP sim_resp median=0.447, TP sim_query median=0.473)
+
+AXIS 1 — CONTENT vs ground-truth response:
+   UNRELATED(novel content)         8932 (65.1%)
+   MATCHES_GT                       4797 (34.9%)
+   (UNRELATED = the fire says something unrelated to the real event)
+
+AXIS 2 — SELF-REPETITION (model repeats its OWN earlier output):
+   REPEAT(of own earlier fire)     11319 (82.4%)
+   FIRST_TIME                       2410 (17.6%)
+   (REPEAT = this fire restates something the model already said earlier)
+
+AXIS 3 — TIMING vs nearest true trigger:
+   FAR                             10556 (76.9%)
+   NEAR                             3173 (23.1%)
+   (NEAR but counted FP = near-hit just outside tolerance)
+
+--- query relevance (fire vs query), relative to TP ---
+  TP median sim_query: 0.473   FP median sim_query: 0.430
+  fraction of FP less query-relevant than median TP: 56.3%
+
+--- per-task UNRELATED-content share ---
+  instant_event_alert          n=  664  unrelated=34%
+  static_object_counting       n= 1284  unrelated=53%
+  realtime_state_monitor       n= 3307  unrelated=78%
+  semantic_condition_alert     n=  242  unrelated=63%
+  dedup_counting               n= 4790  unrelated=79%
+  explicit_target_grounding    n=  207  unrelated=21%
+  event_narration              n=  108  unrelated=73%
+  sequential_step_instruction  n=  675  unrelated=50%
+  cumulative_counting          n= 2452  unrelated=43%
+
+  wrote 100 samples (3 axis labels each) -> fp_samples.jsonl
+========================================================================

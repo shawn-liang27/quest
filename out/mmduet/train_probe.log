@@ -1,0 +1,61 @@
+MMDuet
+========================================================
+train 52720 (0.149) / val 22759 (0.146); 129 val videos; device=cuda
+
+  layer        linear      MLP
+  h_layer_8     0.672    0.668
+  h_layer_14    0.720    0.723
+  h_layer_20    0.787    0.787
+  h_layer_28    0.771    0.776
+
+========================================================
+best layer: h_layer_20  (linear=0.787 mlp=0.787)
+final layer (h_layer_28): linear=0.771 mlp=0.776
+lift of best over final: +0.011
+--------------------------------------------------------
+  best >> final  -> firing head reads wrong layer (cheap fix)
+  all plateau    -> representational fix needed
+  MLP >> linear  -> nonlinear readout helps at that layer
+========================================================
+
+=======================================================
+Per task
+=======================================================
+layer=h_layer_20  frames=75479  event_frac=0.148  videos=432  tasks=9
+
+overall val AUROC: 0.784
+
+  task                                n  events   AUROC  type
+  cumulative_counting              3287     543   0.775  presence
+  dedup_counting                   7401     852   0.780  presence
+  event_narration                   446      98   0.486  onset
+  explicit_target_grounding         701      35   0.726  presence
+  instant_event_alert              1153      49   0.785  onset
+  realtime_state_monitor           4424     711   0.713  presence
+  semantic_condition_alert          671     101   0.692  onset
+  sequential_step_instruction      2546     864   0.619  onset
+  static_object_counting           2130      70   0.839  presence
+
+  mean AUROC  onset-type tasks   : 0.645
+  mean AUROC  presence-type tasks : 0.767
+
+  presence >> onset -> representation encodes presence not onset (#2)
+        -> build onset/change features, target onset-type tasks
+  flat              -> uniform weakness -> untrained representation (#4)
+
+=============================================================
+Query Conditioned Probe
+=============================================================
+train 52720 / val 22759; dh=3584 dq=768; pos_w=5.70
+
+  probe                          AUROC
+  h_t only (linear)              0.784
+  h_t only (MLP)                 0.789
+  [h_t;q] concat (linear)        0.785
+  [h_t;q] concat (MLP)           0.781
+  FiLM(h_t,q)                    0.740
+
+  concat/FiLM >> h_t only -> trained query-conditioning adds separability
+        -> query steering/FiLM worth building
+  concat/FiLM ~= h_t only -> query info is NOT the missing signal
+        -> build onset/change features instead

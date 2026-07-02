@@ -1,0 +1,62 @@
+MMDuet2
+=======================================================
+frames=75003  event_frac=0.148  videos=432  layers=['h_layer_10', 'h_layer_18', 'h_layer_26', 'h_layer_36']
+train 52446 (0.149) / val 22557 (0.146); 129 val videos; device=cuda
+
+  layer        linear      MLP
+  h_layer_10    0.721    0.725
+  h_layer_18    0.750    0.748
+  h_layer_26    0.764    0.776
+  h_layer_36    0.744    0.763
+
+========================================================
+best layer: h_layer_26  (linear=0.764 mlp=0.776)
+final layer (h_layer_36): linear=0.744 mlp=0.763
+lift of best over final: +0.013
+--------------------------------------------------------
+  best >> final  -> firing head reads wrong layer (cheap fix)
+  all plateau    -> representational fix needed
+  MLP >> linear  -> nonlinear readout helps at that layer
+========================================================
+
+========================================================
+Per-Task Probe
+========================================================
+layer=h_layer_26  frames=75003  event_frac=0.148  videos=432  tasks=9
+
+overall val AUROC: 0.759
+
+  task                                n  events   AUROC  type
+  cumulative_counting              3270     543   0.749  presence
+  dedup_counting                   7396     836   0.746  presence
+  event_narration                   446      98   0.487  onset
+  explicit_target_grounding         701      35   0.584  presence
+  instant_event_alert              1153      49   0.703  onset
+  realtime_state_monitor           4329     711   0.720  presence
+  semantic_condition_alert          671     101   0.725  onset
+  sequential_step_instruction      2546     859   0.681  onset
+  static_object_counting           2045      70   0.660  presence
+
+  mean AUROC  onset-type tasks   : 0.649
+  mean AUROC  presence-type tasks : 0.692
+
+  presence >> onset -> representation encodes presence not onset (#2)
+        -> build onset/change features, target onset-type tasks
+  flat              -> uniform weakness -> untrained representation (#4)
+
+===========================================================
+Inject query conditioning to probe
+===========================================================
+train 52446 / val 22557; dh=2048 dq=768; pos_w=5.70
+
+  probe                          AUROC
+  h_t only (linear)              0.759
+  h_t only (MLP)                 0.724
+  [h_t;q] concat (linear)        0.755
+  [h_t;q] concat (MLP)           0.717
+  FiLM(h_t,q)                    0.698
+
+  concat/FiLM >> h_t only -> trained query-conditioning adds separability
+        -> query steering/FiLM worth building
+  concat/FiLM ~= h_t only -> query info is NOT the missing signal
+        -> build onset/change features instead

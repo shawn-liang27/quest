@@ -20,7 +20,7 @@ Usage:
       --gt_file   /mnt/data0/sgl57/data/omnipro/metadata.jsonl \
       --fps 1.0 --max_frames 400 --tolerance 5.0
 """
-import json, argparse
+import json, argparse, math
 from collections import defaultdict
 
 
@@ -68,7 +68,7 @@ def bucket_of(t):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--pred_file", required=True)
-    ap.add_argument("--gt_file", required=True)
+    ap.add_argument("--gt_file", default="/mnt/data0/sgl57/data/omnipro/metadata.jsonl")
     ap.add_argument("--fps", type=float, default=1.0)
     ap.add_argument("--max_frames", type=int, default=400)
     ap.add_argument("--tolerance", type=float, default=5.0)
@@ -80,9 +80,9 @@ def main():
 
     # ---- duration distribution of the visual-only subset ----
     durs = sorted(v["duration"] for v in gt.values() if v["duration"])
-    print("=" * 70)
+    print("=" * 88)
     print("VISUAL-ONLY SUBSET — duration distribution")
-    print("=" * 70)
+    print("=" * 88)
     if durs:
         n = len(durs)
         print(f"  videos: {n}")
@@ -93,20 +93,25 @@ def main():
         for thr in (180, 300, 400, 600):
             print(f"  videos > {thr}s: {sum(1 for d in durs if d > thr)}")
 
-    # ---- per-bucket: triggers, and how many are beyond the coverage cap ----
-    print("\n" + "=" * 70)
+    # ---- per-bucket metrics ----
+    print("\n" + "=" * 88)
     print(f"COVERAGE CAP = {cap_sec:.0f}s  (fps={args.fps}, max_frames={args.max_frames})")
-    print("=" * 70)
+    print("=" * 88)
 
-    # only consider samples actually run
     run = {qid: g for qid, g in gt.items() if qid in preds}
     print(f"  scored samples (in pred file): {len(run)}\n")
 
-    per_bucket = defaultdict(lambda: {"trigs": 0, "beyond_cap": 0,
-                                      "detected": 0, "missed_beyond": 0,
-                                      "missed_within": 0})
+    per_bucket = defaultdict(lambda: {
+        "trigs": 0, "beyond_cap": 0, "detected": 0,
+        "missed_beyond": 0, "missed_within": 0,
+        "total_preds": 0, "correct_preds": 0,
+        "total_preds_within": 0, "correct_preds_within": 0
+    })
+
     for qid, g in run.items():
-        fires = preds[qid]
+        fires = preds.get(qid, [])
+        
+        # 1. Evaluate Ground Truths (Recall, Misses, Cap)
         for gt_t in g["gt_times"]:
             b = bucket_of(gt_t)
             pb = per_bucket[b]
@@ -114,6 +119,7 @@ def main():
             beyond = gt_t > cap_sec
             if beyond:
                 pb["beyond_cap"] += 1
+                
             detected = any(abs(f - gt_t) <= args.tolerance for f in fires)
             if detected:
                 pb["detected"] += 1
@@ -123,30 +129,68 @@ def main():
                 else:
                     pb["missed_within"] += 1   # genuine miss (model saw it, didn't fire)
 
-    print(f"  {'bucket':12s} {'trigs':>6s} {'beyond_cap':>11s} "
-          f"{'recall':>7s} {'miss>cap':>9s} {'miss<=cap':>10s} {'recall_within':>14s}")
+        # 2. Evaluate Predictions (Precision)
+        for f in fires:
+            b = bucket_of(f)
+            pb = per_bucket[b]
+            pb["total_preds"] += 1
+            
+            is_correct = any(abs(f - gt_t) <= args.tolerance for gt_t in g["gt_times"])
+            if is_correct:
+                pb["correct_preds"] += 1
+                
+            # Track predictions within the coverage cap for adjusted precision
+            if f <= cap_sec:
+                pb["total_preds_within"] += 1
+                if is_correct:
+                    pb["correct_preds_within"] += 1
+
+    # Table Header
+    print(f"  {'bucket':11s} {'trigs':>5s} {'>cap':>4s} {'preds':>5s} | "
+          f"{'Rec':>5s} {'Prec':>5s} {'F1':>5s} | "
+          f"{'m>cap':>5s} {'m<=cap':>6s} | "
+          f"{'Rec_w':>5s} {'Prec_w':>6s} {'F1_w':>5s}")
+    print("  " + "-" * 85)
+
     for lo, hi in BUCKETS:
         b = f"{lo}-{hi if hi < 1e9 else 'inf'}s"
         pb = per_bucket.get(b)
-        if not pb or pb["trigs"] == 0:
+        # Skip empty buckets where there are neither GT triggers nor model predictions
+        if not pb or (pb["trigs"] == 0 and pb["total_preds"] == 0):
             continue
-        recall = pb["detected"] / pb["trigs"]
-        within = pb["trigs"] - pb["beyond_cap"]
-        # recall computed ONLY over triggers the model could actually see
-        det_within = pb["detected"]   # detected are by definition within reach
-        recall_within = det_within / within if within > 0 else float("nan")
-        print(f"  {b:12s} {pb['trigs']:6d} {pb['beyond_cap']:11d} "
-              f"{recall:7.3f} {pb['missed_beyond']:9d} {pb['missed_within']:10d} "
-              f"{recall_within:14.3f}")
+            
+        # Standard Metrics
+        recall = pb["detected"] / pb["trigs"] if pb["trigs"] > 0 else 0.0
+        precision = pb["correct_preds"] / pb["total_preds"] if pb["total_preds"] > 0 else 0.0
+        f1 = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0.0
+        
+        # Within-Cap Metrics (excluding triggers/preds beyond the coverage cap)
+        within_trigs = pb["trigs"] - pb["beyond_cap"]
+        recall_w = pb["detected"] / within_trigs if within_trigs > 0 else float("nan")
+        prec_w = pb["correct_preds_within"] / pb["total_preds_within"] if pb["total_preds_within"] > 0 else float("nan")
+        
+        if not math.isnan(recall_w) and not math.isnan(prec_w) and (prec_w + recall_w) > 0:
+            f1_w = 2 * (prec_w * recall_w) / (prec_w + recall_w)
+        else:
+            f1_w = float("nan")
+
+        # Helper to format NaN gracefully
+        def fmt(val):
+            return f"{val:5.2f}" if not math.isnan(val) else "  NaN"
+
+        print(f"  {b:11s} {pb['trigs']:5d} {pb['beyond_cap']:4d} {pb['total_preds']:5d} | "
+              f"{fmt(recall)} {fmt(precision)} {fmt(f1)} | "
+              f"{pb['missed_beyond']:5d} {pb['missed_within']:6d} | "
+              f"{fmt(recall_w)} {fmt(prec_w)} {fmt(f1_w)}")
 
     print("\nInterpretation:")
-    print("  - 'beyond_cap' = triggers the model NEVER ingested (truncation).")
-    print("  - 'miss>cap'   = misses explained by truncation (not decay).")
-    print("  - 'miss<=cap'  = genuine misses: model saw the frames, didn't fire.")
-    print("  - 'recall_within' = recall over only the triggers the model could see.")
-    print("  If the 300-600s recall drop disappears in recall_within, the decay")
-    print("  was the coverage cap, NOT attention dilution.")
-    print("=" * 70)
+    print("  - '>cap'       = GT triggers the model NEVER ingested (truncation).")
+    print("  - 'Rec/Prec/F1'= Standard metrics over all triggers and predictions in the bucket.")
+    print("  - 'm>cap'      = Misses explained entirely by truncation.")
+    print("  - 'm<=cap'     = Genuine misses: model ingested the frames but failed to trigger.")
+    print("  - '*_w' metrics= Recall/Precision/F1 calculated ONLY over triggers and predictions <= cap.")
+    print("  If the 300-600s drop disappears in '*_w', the decay is from the coverage cap, not attention dilution.")
+    print("=" * 88)
 
 
 if __name__ == "__main__":
